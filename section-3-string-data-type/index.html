@@ -3,52 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>test</title>
-
-    <style>
-        section{
-            width: 1440px;
-            margin: auto;
-        }
-
-        .inner{
-            display: flex;
-            background-color: gray;
-        }
-
-        .box{
-            background-color: red;
-        }
-
-        .outer{
-            display: flex;
-        }
-    </style>
+    <title>String data type</title>
 </head>
 <body>
 
-    <h1>div</h1>
+    <h1>String data Type in Js</h1>
 
-    <section>
+   <script>
 
-        <div class="outer">
+        var str1 = "Hello";
+        var str2 = "World";
 
-        
-            <div class="inner">
-                <p>image</p>
+        console.log(str1+str2);
 
-                <p>three paragraph text</p>
+        console.log("##length of string or text");
 
-                <p>dolar</p>
-            </div>
+        var greeting = "Hi, nice to meet you, I'm am John.";
+        console.log(greeting);
+        console.log(greeting.length);
 
-            <div class="box">
-                <h1>box</h1>
-            </div>
+        console.log("##Get the single character from string data");
+        console.log(greeting["7"]);
 
-        </div>
+        console.log("##Get the phrase from string");
+        console.log(greeting.slice(4,11));
 
-    </section>
+        console.log("##Uppercase");
+        console.log(greeting.toUpperCase());
+
+        console.log("##lowercase");
+        console.log(greeting.toLowerCase());
+   </script>
     
 </body>
 </html>
