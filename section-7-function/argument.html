@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>argument</title>
+</head>
+<body>
+
+    <h1>argument</h1>
+
+    <script>
+
+        console.log('#argument');
+
+        function myFunction(a, b) {
+            console.log(a + b);
+            console.log("argument length: " + arguments.length);
+        }
+
+        myFunction(10, 20);
+
+
+        function myName() {
+            console.log("My name is "+arguments[0] + " " + arguments[1])
+            
+        }
+
+        function myName2() {
+            console.log("My name is "+arguments[1] + " " + arguments[0])
+        }
+
+        myName("Md.", "Tazri");
+        myName2("Md.", "Tazri");
+    </script>
+    
+</body>
+</html>
