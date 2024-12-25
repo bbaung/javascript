@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iterative</title>
+</head>
+<body>
+
+    <h1>iterative</h1>
+
+    <script>
+
+        console.log('iterative method');
+        var arr =[1,23,45,32,3,64,5,2];
+        console.log(arr);
+
+        console.log('#evey');
+        var everyResult = arr.every(function(item, index, array){
+            return item < 2;
+        });
+        console.log(everyResult);
+
+        console.log('#some');
+        var someResult = arr.some(function(item, index, array){
+            return item < 2;
+        });
+        console.log(someResult);
+
+        console.log('#filter');
+        var filterResult = arr.filter(function(item, index, array){
+            return item < 10;
+        });
+        console.log(filterResult);
+
+        console.log('#map');
+        var mapResult = arr.map(function(item, index, array){
+            return item * 2;
+        });
+        console.log(mapResult);
+
+        console.log('#forEach');
+        arr.forEach(function(item, index, array){
+            console.log(item);
+        });
+        
+    </script>
+    
+</body>
+</html>
