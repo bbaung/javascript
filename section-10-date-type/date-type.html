@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>date type</title>
+</head>
+<body>
+
+    <h1>date type</h1>
+
+    <script>
+        console.log("#Date.parse");
+        var date = new Date();
+        console.log(date);
+        console.log(typeof date);
+
+        var date = new Date('2020-12-12');
+        console.log(date);
+        console.log(typeof date);
+
+        var date2 = new Date(2020, 11, 12);
+        console.log(date);
+        console.log(typeof date);
+
+        var date3 = new Date(Date.parse("Dec 12, 2024"));
+        console.log(date3);
+        console.log(Date.now());
+
+        console.log("#Date.UTC");
+
+        var date4 = new Date(Date.UTC(2020, 11, 12));
+        console.log(date4);
+
+        var date5 = new Date(Date.UTC(2020, 11, 12, 17, 55, 55));
+        console.log(date5);
+
+        
+
+        
+    </script>
+</body>
+</html>
