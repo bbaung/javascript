@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>reordering method</title>
+</head>
+<body>
+    
+    <h1>reordering method</h1>
+
+    <script>
+        console.log('reordering method');
+
+        var values = [1, 56, 46, 6, 8, 2, 17, 38, 5, 10];
+        console.log(values);
+        console.log(values.reverse());
+        console.log(values.sort());
+
+        console.log("sort in ascending order");
+        console.log(values.sort(function(a, b) {
+            return a - b;
+        }));
+
+        console.log("sort in descending order");
+        console.log(values.sort(function(a, b) {
+            return b - a;
+        }));
+    </script>
+</body>
+</html>
