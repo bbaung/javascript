@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>manipulation method</title>
+</head>
+<body>
+
+    <h1>mainipulation method</h1>
+
+    <script>
+        console.log('mainipulation method');
+
+        var colors = ['red', 'green', 'blue'];
+        console.log(colors);
+
+        var colors2 = colors.concat('yellow', ['black', 'brown']);
+        console.log(colors2);
+        console.log(colors2.slice(1));
+        console.log(colors2.slice(1, 4));
+
+        var removed = colors.splice(1, 0, 'yellow', 'orange');
+        console.log(removed);
+        console.log(colors);
+
+        var removed = colors.splice(1, 1, 'dark green', 'purple');
+        console.log(removed);
+        console.log(colors);
+
+    </script>
+    
+</body>
+</html>
