@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>stack and queue method</title>
+</head>
+<body>
+
+    <h1>stack and queue method</h1>
+
+    <h2>Stack (LIFO)
+        The only way to add one and/or remove one is from the top. simliar like pancake</h2>
+
+    <h2>Queue (FIFO) When one arrives they arrive at the end of the queue and when one leaves they leave from the front of the queue. simliar like line up</h2>
+
+    <script>
+        // stack
+        console.log('stack method');
+        let stack = [];
+        stack.push("apple");
+        stack.push("banana");
+        stack.push("cherry");
+        stack.push("date");
+        stack.push("elderberry");
+        console.log(stack);
+        stack.pop();
+        console.log(stack);
+        stack.pop();
+        console.log(stack);
+
+        // queue
+        console.log('queue method');
+        let queue = [];
+        queue.push("apple");
+        queue.push("banana");
+        queue.push("cherry");
+        queue.push("date");
+        queue.push("elderberry");
+        console.log(queue);
+        queue.shift();
+        console.log(queue);
+        queue.shift();
+        console.log(queue);
+    </script>
+    
+</body>
+</html>
