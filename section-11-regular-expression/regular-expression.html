@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>regular expression</title>
+</head>
+<body>
+    <h1>#regular expression</h1>
+
+    <h2>meta-character</h2>
+
+    <h3>single character</h3>
+
+    <table border="1" cellpadding="10" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Character</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>.</td>
+                <td>Matches any single character except newline</td>
+            </tr>
+            <tr>
+                <td>\d</td>
+                <td>Matches any digit (0-9)</td>
+            </tr>
+            <tr>
+                <td>\D</td>
+                <td>Matches any non-digit character</td>
+            </tr>
+            <tr>
+                <td>\w</td>
+                <td>Matches any word character (alphanumeric & underscore)</td>
+            </tr>
+            <tr>
+                <td>\W</td>
+                <td>Matches any non-word character</td>
+            </tr>
+            <tr>
+                <td>\s</td>
+                <td>Matches any whitespace character (spaces, tabs, line breaks)</td>
+            </tr>
+            <tr>
+                <td>\S</td>
+                <td>Matches any non-whitespace character</td>
+            </tr>
+        </tbody>    
+    </table>
+
+    <h3>quentifiers</h3>
+
+    <table border="1" cellpadding="10" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Quantifier</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>*</td>
+                <td>Matches 0 or more occurrences of the preceding element</td>
+            </tr>
+            <tr>
+                <td>+</td>
+                <td>Matches 1 or more occurrences of the preceding element</td>
+            </tr>
+            <tr>
+                <td>?</td>
+                <td>Matches 0 or 1 occurrence of the preceding element</td>
+            </tr>
+            <tr>
+                <td>{n}</td>
+                <td>Matches exactly n occurrences of the preceding element</td>
+            </tr>
+            <tr>
+                <td>{n,}</td>
+                <td>Matches n or more occurrences of the preceding element</td>
+            </tr>
+            <tr>
+                <td>{n,m}</td>
+                <td>Matches between n and m occurrences of the preceding element</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>position</h3>
+
+    <table border="1" cellpadding="10" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Position</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>^</td>
+                <td>Matches the beginning of a string</td>
+            </tr>
+            <tr>
+                <td>$</td>
+                <td>Matches the end of a string</td>
+            </tr>
+            <tr>
+                <td>\b</td>
+                <td>Matches a word boundary</td>
+            </tr>
+            <tr>
+                <td>\B</td>
+                <td>Matches a non-word boundary</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <h3>character class</h3>
+
+        <table border="1" cellpadding="10" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Character</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>[abc]</td>
+                    <td>Matches a single character that is either a, b, or c</td>
+                </tr>
+                <tr>
+                    <td>[^abc]</td>
+                    <td>Matches a single character that is not a, b, or c</td>
+                </tr>
+                <tr>
+                    <td>[a-z]</td>
+                    <td>Matches a single character from a to z</td>
+                </tr>
+                <tr>
+                    <td>[A-Z]</td>
+                    <td>Matches a single character from A to Z</td>
+                </tr>
+                <tr>
+                    <td>[0-9]</td>
+                    <td>Matches a single digit from 0 to 9</td>
+                </tr>
+                <tr>
+                    <td>[a-zA-Z]</td>
+                    <td>Matches a single character from a to z or from A to Z</td>
+                </tr>
+                <tr>
+                    <td>[a-z0-9]</td>
+                    <td>Matches a single character from a to z or from 0 to 9</td>
+                </tr>
+                <tr>
+                    <td>( com | dev | org)</td>
+                    <td>Matches any of the strings com, dev, or org</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>regexp type</h3>
+
+        <table border="1" cellpadding="10" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>regexp</th>
+                    <th>description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>/pattern/</td>
+                    <td>Matches the pattern</td>
+                </tr>
+                <tr>
+                    <td>/pattern/i</td>
+                    <td>Matches the pattern case-insensitively</td>
+                </tr>
+                <tr>
+                    <td>/pattern/g</td>
+                    <td>Matches the pattern globally</td>
+                </tr>
+                <tr>
+                    <td>/pattern/m</td>
+                    <td>Matches the pattern over multiple lines</td>
+                </tr>
+                <tr>
+                    <td>/pattern/s</td>
+                    <td>Matches the pattern over multiple lines</td>
+                </tr>
+                <tr>
+                    <td>/pattern/y</td>
+                    <td>Matches the pattern in the sticky mode</td>
+                </tr>
+                <tr>
+                    <td>/pattern/u</td>
+                    <td>Matches the pattern with unicode support</td>
+                </tr>
+            </tbody>
+        </table>
+</body>
+</html>
