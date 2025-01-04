@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>window object</title>
+
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Window Object</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>window.innerHeight</td>
+                <td>Returns the height of the window's content area (in pixels).</td>
+            </tr>
+            <tr>
+                <td>window.innerWidth</td>
+                <td>Returns the width of the window's content area (in pixels).</td>
+            </tr>
+            <tr>
+                <td>window.location</td>
+                <td>Returns a Location object with information about the current URL.</td>
+            </tr>
+            <tr>
+                <td>window.location.href</td>
+                <td>Returns the entire URL of the current page.</td>
+            </tr>
+            <tr>
+                <td>window.location.hostname</td>
+                <td>Returns the domain name of the web host.</td>
+            </tr>
+            <tr>
+                <td>window.location.pathname</td>
+                <td>Returns the path and filename of the current page.</td>
+            </tr>
+            <tr>
+                <td>window.location.protocol</td>
+                <td>Returns the web protocol used (http: or https:).</td>
+            </tr>
+            <tr>
+                <td>window.location.search</td>
+                <td>Returns the query string part of a URL (including the leading question mark).</td>
+            </tr>
+            <tr>
+                <td>window.location.assign</td>
+                <td>Loads a new document.</td>
+            </tr>
+            <tr>
+                <td>window.location.reload</td>
+                <td>Reloads the current document.</td>
+            </tr>
+            <tr>
+                <td>window.location.replace</td>
+                <td>Replaces the current document with a new one.</td>
+            </tr>
+            <tr>
+                <td>window.location.toString</td>
+                <td>Returns the URL as a string.</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Window Method</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>window.alert()</td>
+                <td>Displays an alert box with a specified message and an OK button.</td>
+            </tr>
+            <tr>
+                <td>window.confirm()</td>
+                <td>Displays a dialog box with a specified message, along with an OK and a Cancel button.</td>
+            </tr>
+            <tr>
+                <td>window.prompt()</td>
+                <td>Displays a dialog box that prompts the user for input.</td>
+            </tr>
+            <tr>
+                <td>window.open()</td>
+                <td>Opens a new browser window or tab.</td>
+            </tr>
+            <tr>
+                <td>window.close()</td>
+                <td>Closes the current browser window or tab.</td>
+            </tr>
+            <tr>
+                <td>window.print()</td>
+                <td>Prints the content of the current window.</td>
+            </tr>
+            <tr>
+                <td>window.scrollTo()</td>
+                <td>Scrolls the document to the specified coordinates.</td>
+            </tr>
+            <tr>
+                <td>window.setTimeout()</td>
+                <td>Calls a function or evaluates an expression after a specified number of milliseconds.</td>
+            </tr>
+            <tr>
+                <td>window.setInterval()</td>
+                <td>Calls a function or evaluates an expression at specified intervals (in milliseconds).</td>
+            </tr>
+            <tr>
+                <td>window.clearTimeout()</td>
+                <td>Clears a timer set with setTimeout().</td>
+            </tr>
+            <tr>
+                <td>window.clearInterval()</td>
+                <td>Clears a timer set with setInterval().</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <script>
+        // window object
+        console.log(window);
+        console.log(window.innerHeight);
+        console.log(window.innerWidth);
+        console.log(window.location);
+        console.log(window.location.href);
+        console.log(window.location.hostname);
+        console.log(window.location.pathname);
+        console.log(window.location.protocol);
+        console.log(window.location.search);
+        console.log(window.location.assign);
+        console.log(window.location.reload);
+        console.log(window.location.replace);
+        console.log(window.location.toString);
+
+
+        //window memory saving
+        console.log("#window memory saving");
+        var age = 29;
+        window.color = 'red';
+
+        console.log(age);
+        console.log(window.color);
+
+        console.log("#after delete");
+
+        delete window.color;
+        delete age;
+
+        console.log(window.color);
+        console.log(age);
+        
+
+    </script>
+</body>
+</html>
