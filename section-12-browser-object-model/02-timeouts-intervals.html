@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>timeouts and intervals</title>
+</head>
+<body>
+    
+    <h1>timeous and intervals</h1>
+
+    <button type="button" onclick="start()">start</button>
+
+    <p id="time-text">time : </p>
+
+    <button type="button" onclick="stop()">stop</button>
+
+
+    <script>
+
+        console.log('#set timeout');
+        function time1() {
+            console.log('timeout test');
+        }
+
+        function time2() {
+            console.log('timeout test 2');
+        }
+
+        setTimeout(time1, 3000);
+
+        setTimeout(time2, 5000);
+
+        var timeout = setTimeout(time2, 3000);
+
+        clearTimeout(timeout);
+
+        <!-- interval -->
+        console.log('#set interval');
+
+        let text = document.getElementById('time-text');
+
+        let time;
+
+        function start() {
+           time = setInterval(updateTime, 1000);
+        }
+
+        function updateTime() {
+            text.innerHTML = new Date();
+        }
+
+        function stop() {
+            clearInterval(time);
+            console.log('interval stopped');    
+        }
+
+    
+
+    </script>
+</body>
+</html>
