@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>window position and size</title>
+</head>
+<body>
+
+    <h1>window position and size</h1>
+
+    <h2>minimize window to test</h2>
+
+    <p><span>screenX : </span> <span id="x"></span></p>
+
+    <p><span>screenY : </span> <span id="y"></span></p>
+
+    <p><span>Width : </span> <span id="width"></span></p>
+
+    <p><span>Height : </span> <span id="height"></span></p>
+
+    <script>
+        console.log("#window position and size");
+        console.log(window.screenX);
+        console.log(window.screenY);
+        console.log(window.outerWidth);
+        console.log(window.outerHeight);
+        console.log(window.innerWidth);
+        console.log(window.innerHeight);
+
+        let x = document.getElementById("x");
+        let y = document.getElementById("y");
+        let width = document.getElementById("width");
+        let height = document.getElementById("height");
+
+        function updatePositionSize() {
+            x.innerHTML = window.screenX;
+            y.innerHTML = window.screenY;
+            width.innerHTML = window.outerWidth;
+            height.innerHTML = window.outerHeight;
+        }
+
+        setInterval(updatePositionSize, 10);
+    
+    </script>
+    
+</body>
+</html>
