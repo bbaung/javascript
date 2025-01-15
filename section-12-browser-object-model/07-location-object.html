@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>location object</title>
+</head>
+<body>
+    <h1>location object</h1>
+
+    <table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; width: 100%; text-align: left;">
+        <thead>
+            <tr>
+                <th>Keyword</th>
+                <th>Example</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>href</td>
+                <td>location.href</td>
+                <td>Returns the entire URL of the current page.</td>
+            </tr>
+            <tr>
+                <td>protocol</td>
+                <td>location.protocol</td>
+                <td>Returns the protocol of the current URL (e.g., http:, https:).</td>
+            </tr>
+            <tr>
+                <td>host</td>
+                <td>location.host</td>
+                <td>Returns the hostname and port number of the current URL.</td>
+            </tr>
+            <tr>
+                <td>hostname</td>
+                <td>location.hostname</td>
+                <td>Returns the hostname of the current URL.</td>
+            </tr>
+            <tr>
+                <td>port</td>
+                <td>location.port</td>
+                <td>Returns the port number of the current URL.</td>
+            </tr>
+            <tr>
+                <td>pathname</td>
+                <td>location.pathname</td>
+                <td>Returns the path of the current URL.</td>
+            </tr>
+            <tr>
+                <td>search</td>
+                <td>location.search</td>
+                <td>Returns the query string of the current URL.</td>
+            </tr>
+            <tr>
+                <td>hash</td>
+                <td>location.hash</td>
+                <td>Returns the anchor part of the current URL.</td>
+            </tr>
+            <tr>
+                <td>assign()</td>
+                <td>location.assign('http://example.com')</td>
+                <td>Loads a new document.</td>
+            </tr>
+            <tr>
+                <td>reload()</td>
+                <td>location.reload()</td>
+                <td>Reloads the current document.</td>
+            </tr>
+            <tr>
+                <td>replace()</td>
+                <td>location.replace('http://example.com')</td>
+                <td>Replaces the current document with a new one.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        console.log("#location object")
+
+        console.log("location.href - " , location.href);
+        console.log("location.protocol - ", location.protocol);
+        
+    </script>
+</body>
+</html>
