@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Dialogs</title>
+</head>
+<body>
+    <h1>System Dialogs</h1>
+
+    <table border="1" style="width:100%; border-collapse: collapse;">
+        <thead>
+            <tr>
+                <th>System Dialogs Keyword</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>alert</td>
+                <td>Displays an alert dialog with a specified message and an OK button.</td>
+            </tr>
+            <tr>
+                <td>confirm</td>
+                <td>Displays a dialog with a specified message, along with OK and Cancel buttons.</td>
+            </tr>
+            <tr>
+                <td>prompt</td>
+                <td>Displays a dialog with a specified message, a text input field, and OK and Cancel buttons.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        alert("This is alert box");
+
+        
+        
+        if(confirm("confirm box")){
+            console.log("clicked ok");
+        }else{
+            console.log("clicked cancel");
+        }
+
+        let month = prompt("What is your birthaday month").toLowerCase();
+        console.log(month);
+
+        switch (month){
+            case "january":
+                console.log("Wow you are January born");
+                break;
+            default:
+                console.log("I don't know that month")
+        }
+
+    </script>
+    
+</body>
+</html>
