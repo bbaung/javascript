@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigating and Opening Window</title>
+</head>
+<body>
+    
+    <h1>Navigating and Opening Window</h1>
+
+    <button type="button" onclick="show()">open youtube</button><br><br>
+
+    <button type="button" onclick="hide()">close youtube</button>
+
+    <script>
+        console.log("#Navigating and Opening Window")
+        console.log("current issue: window.close does not work")
+
+        let win_youtube;
+        function show(){
+            win_youtube = window.open("https://www.youtube.com/watch?v=EczP4ujkmIE","_blank","width=500,height=500,top=20,left=300");
+            console.log("window open");
+        }
+
+        function hide() {
+            if (win_youtube) {
+                win_youtube.close();
+                console.log("window closed");
+            }
+        }
+    </script>
+</body>
+</html>
