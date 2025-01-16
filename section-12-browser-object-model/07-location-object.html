@@ -75,11 +75,33 @@
         </tbody>
     </table>
 
+    <button type="button" onclick="b1()">reload</button><br><br>
+
+    <button type="button" onclick="b2()">hard reload</button>
+
     <script>
         console.log("#location object")
 
         console.log("location.href - " , location.href);
         console.log("location.protocol - ", location.protocol);
+        console.log("location.host - ", location.host);
+        console.log("location.hostname - ", location.hostname);
+        console.log("location.port - ", location.port);
+        console.log("location.pathname - ", location.pathname);
+        console.log("location.search - ", location.search);
+        console.log("location.hash - ", location.hash);
+
+
+        function b1(){
+            console.log("#reload browser");
+            location.reload;
+        }
+
+        function b2(){
+            console.log("#hard reload browser");
+            location.reload(true);
+        }
+    
         
     </script>
 </body>
