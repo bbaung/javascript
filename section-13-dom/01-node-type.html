@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>node type</title>
+</head>
+<body>
+
+    <h1>Node Type</h1>
+    <table border="1" style="width: 100%; border-collapse: collapse;">
+        <thead>
+            <tr>
+                <th>Node Number</th>
+                <th>Node Type</th>
+                <th>Example</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Element</td>
+                <td>&lt;div&gt;&lt;/div&gt;</td>
+                <td>An element node, such as &lt;div&gt; or &lt;span&gt;</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Attribute</td>
+                <td>class="example"</td>
+                <td>An attribute of an element, such as class or id</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Text</td>
+                <td>Some text</td>
+                <td>The text content of an element or attribute</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>Comment</td>
+                <td>&lt;!-- comment --&gt;</td>
+                <td>A comment node, such as &lt;!-- comment --&gt;</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>Document</td>
+                <td>#document</td>
+                <td>The entire document</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>DocumentType</td>
+                <td>&lt;!DOCTYPE html&gt;</td>
+                <td>The doctype declaration, such as &lt;!DOCTYPE html&gt;</td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>DocumentFragment</td>
+                <td>#document-fragment</td>
+                <td>A minimal document object that has no parent</td>
+            </tr>
+        </tbody>
+    </table>
+    
+
+    <button type="button" class="button-1">button 1</button>
+
+    <button type="button" class="button-2">button 2</button>
+
+    <script>
+        console.log("#nodeType");
+        const button1 = document.querySelector('.button-1');
+        const button2 = document.querySelector('.button-2');
+
+        const body = document.body;
+
+        console.log(button1.nodeType);
+        console.log(button2.nodeType);
+
+        console.log(body.nodeType);
+        console.log(body.childNodes)
+        console.log(body.childNodes[0].nodeType);
+        console.log(body.childNodes[0].nodeName)
+
+        body.childNodes.forEach(node => {
+            if (node.nodeType === Node.ELEMENT_NODE) {
+                console.log(node);
+            }
+        });
+    </script>
+
+</body>
+</html>
