@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>node manipulating</title>
+
+    <style>
+        div {
+            margin: 20px 0px;
+            padding: 10px;
+            border: 1px solid black;
+            max-width: 800px;
+        }
+
+        div p {
+            margin-top: 0px;
+            margin-bottom: 0px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>node manipulating</h1>
+
+    <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/DOM_scripting">https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/DOM_scripting</a>
+    
+    <div>
+        <p>var returnedNode = someNode.appendChild(newNode);</p>
+        <p>alert(returnedNode == newNode); //true</p>
+        <p>alert(someNode.lastChild == newNode); //true</p>
+    </div>
+
+    <div>
+        <p>var returnedNode = someNode.appendChild(someNode.firstChild);</p>
+        <p>alert(returnedNode == someNode.firstChild); //false</p>
+        <p>alert(returnedNode == someNode.lastChild); //true</p>
+    </div>
+
+    <div>
+        <p>//insert as last child returnedNode</p>
+        <p>someNode.insertBefore(newNode,null);</p>
+        <p>alert(newNode == someNode.lastChild); //true</p>
+    </div>
+
+    <div>
+        <p>//insert as the new first child</p>
+        <p>returnedNode = someNode.insertBefore(newNode,someNode.firstChild);</p>
+        <p>alert(returnedNode == newNode); //true</p>
+        <p>alert(newNode == someNode.firstChild); //true</p>
+    </div>
+
+    <div>
+        <p>//insert before last child</p>
+        <p>returnedNode = someNode.insertBefore(newNode,someNode.lastChild);</p>
+        <p>alert(newNode == someNode.childNodes[someNode.childNodes.length-2]); //true</p>
+    </div>
+
+    <div>
+        <p>//replace first child</p>
+        <p>var returnedNode = someNode.replaceChild(newNode,someNode.firstChild);</p>
+        <p>//replace last child</p>
+        <p>var returnedNode = someNode.replaceChild(newNode,someNode.lastChild);</p>
+    </div>
+
+    <div>
+        <p>//remove first child</p>
+        <p>var formerFirstChild = someNode.removeChild(someNode.firstChild);</p>
+        <p>//remove last child</p>
+        <p>var formerLastChild = someNode.removeChild(someNode.lastChild);</p>
+    </div>
+
+    <h2>clone Node</h2>
+
+    <div>
+        <p>var deepList = myList.cloneNode(true);</p>
+        <p>alert(deepList.childNodes.length); //3</p>
+        <p>//clone the node with child node</p>
+    </div>
+
+    <div>
+        <p>var shallowList = myList.cloneNode(false);</p>
+        <p>alert(shallowList.childNodes.length); //0</p>
+        <p>//clone the node without child node</p>
+    </div>
+    
+</body>
+</html>
