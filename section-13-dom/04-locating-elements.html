@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>locating elements</title>
+</head>
+<body>
+    <h1>locating elements</h1>
+
+    <p id="p1"></p>
+    <p></p>
+    <p name="p3"></p>
+    <p></p>
+    <p></p>
+
+    <h2></h2>
+    <h2></h2>
+
+    <script>
+        console.log("locating elements");
+
+        let paras = document.getElementsByTagName("p");
+
+        console.log(paras);
+
+        for (let i = 0; i < paras.length; i++) {
+            paras[i].style.marginTop = "0px";
+            paras[i].style.marginBottom = "0px";
+        }
+
+        paras[0].innerHTML = "first paragraph";
+        paras[2].innerHTML = "third paragraph";
+        paras.namedItem('p3').innerHTML = "this is named element";
+        paras.item(4).innerHTML = "Hello 4";
+
+        console.log(document.getElementsByTagName("*"));
+    </script>
+    
+</body>
+</html>
