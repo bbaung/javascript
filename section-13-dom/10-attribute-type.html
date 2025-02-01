@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>attribute type</title>
+</head>
+<body>
+    <h1>attribute type</h1>
+
+    <h2>testing</h2>
+
+    <ul>
+        <li>nodeType is 2.</li>
+        <li>nodeName is the attribute name</li>
+        <li>nodeValue is the attribute value</li>
+        <li>parentNode is null</li>
+        <li>Child nodes are not supported in HTML</li>
+        <li>Child nodes may be Text or EntityReference in XML</li>
+    </ul>
+
+    <script>
+        let text = document.querySelector('h2');
+        console.log(text.innerHTML);
+
+        let attr = document.createAttribute('my_custom');
+        attr.value = 'Hello world';
+
+        text.setAttributeNode(attr);
+
+        console.log(text.getAttributeNode('my_custom').nodeType);
+        console.log(text.getAttributeNode('my_custom'));
+        console.log(text.getAttributeNode('my_custom').value);
+
+    </script>
+</body>
+</html>
