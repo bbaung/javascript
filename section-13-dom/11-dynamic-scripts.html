@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dynamic scripts</title>
+</head>
+<body>
+
+    <h1>dynamic scripts</h1>
+
+    <h2>dynamic script 1</h2>
+
+    <script>
+        function loadScript(url) {
+            var script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.src = url;
+            document.head.appendChild(script);
+        }
+
+        loadScript("script.js");
+    </script>
+
+    <h2>dynamic script 2</h2>
+
+    <script type="text/javascript">
+        function hello(){
+            alert('hello world');
+        }
+    </script>
+    
+    <script>
+        var script2 = document.createElement('script');
+        script2.type = 'text/javascript';
+        script2.appendChild(document.createTextNode('function hello(){alert("hello world");}'));
+        hello();
+        document.body.appendChild(script2);
+    </script>
+</body>
+</html>
