@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>comment type</title>
+</head>
+<body>
+
+    <h1>comment type</h1>
+
+    <ul>
+        <li>nodeType is 8.</li>
+        <li>nodeName is "#comment".</li>
+        <li>nodeValue is the content of the comment</li>
+        <li>parentNode is a Document or Element</li>
+        <li>Child nodes are not supported.</li>
+    </ul>
+    
+    <div id="text">
+        <!-- <p>comment type</p> -->
+    </div>
+
+    <script>
+        let div = document.createComment('Hello world');
+        document.getElementById("text").appendChild(div);
+
+        console.log(document.getElementById("text").lastChild.nodeType);
+        console.log(document.getElementById("text").lastChild.data);
+    </script>
+</body>
+</html>
