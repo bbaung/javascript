@@ -4,6 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>element type</title>
+
+    <style>
+        div {
+            margin: 20px 0px;
+            padding: 10px;
+            border: 1px solid black;
+            max-width: 800px;
+        }
+
+        div p {
+            margin-top: 0px;
+            margin-bottom: 0px;
+            font-size: 20px;
+        }
+    </style>
 </head>
 <body>
     <h1>element type</h1>
@@ -17,5 +32,54 @@
             PorcessingInstruction, CDATASection, EntityReference</li>
         </li>
     </ul>
+
+    <div>
+        <p>var div = document.getElementById("myDiv");</p>
+        <p>alert(div.tagName); //"DIV"</p>
+        <p>alert(div.tagName == div.nodeName); //true</p>
+    </div>
+
+    <div>
+        <p>if(element.tagName == "div"){//AVOID! Error prone!</p>
+        <p>//do something here</p>
+        <p>}</p>
+    </div>
+
+    <div>
+        <p>if(element.tagName.toLowerCase() == "div"){//Preferred - work in all documents</p>
+        <p>//do something here</p>
+        <p>}</p>
+    </div>
+    
+
+    <h2>Getting Attributes</h2>
+
+    <div id="myDiv" class="bd" title="Body text" lang="en" dir="ltr" my-special-attribute="hello">hello!</div>
+
+    <script>
+
+        console.log("# Getting Attributes");
+        let div = document.getElementById("myDiv");
+        console.log(div.getAttribute("id"));
+        console.log(div.getAttribute("class"));
+        console.log(div.getAttribute("title"));
+        console.log(div.getAttribute("lang"));
+        console.log(div.getAttribute("dir"));
+        console.log(div.getAttribute("my-special-attribute"));
+
+        console.log(document.getElementById("myDiv"));
+
+
+        console.log("# Setting Attributes");
+        div.setAttribute("id", "newId");
+        div.setAttribute("class", "newClass");
+        div.setAttribute("title", "newTitle");
+        div.setAttribute("lang", "es");
+        div.setAttribute("dir", "rtl");
+        div.setAttribute("my-special-attribute", "new value");
+
+        console.log(document.getElementById("newId"));
+    </script>
+
 </body>
 </html>
