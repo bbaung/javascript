@@ -50,36 +50,6 @@
         <p>//do something here</p>
         <p>}</p>
     </div>
-    
-
-    <h2>Getting Attributes</h2>
-
-    <div id="myDiv" class="bd" title="Body text" lang="en" dir="ltr" my-special-attribute="hello">hello!</div>
-
-    <script>
-
-        console.log("# Getting Attributes");
-        let div = document.getElementById("myDiv");
-        console.log(div.getAttribute("id"));
-        console.log(div.getAttribute("class"));
-        console.log(div.getAttribute("title"));
-        console.log(div.getAttribute("lang"));
-        console.log(div.getAttribute("dir"));
-        console.log(div.getAttribute("my-special-attribute"));
-
-        console.log(document.getElementById("myDiv"));
-
-
-        console.log("# Setting Attributes");
-        div.setAttribute("id", "newId");
-        div.setAttribute("class", "newClass");
-        div.setAttribute("title", "newTitle");
-        div.setAttribute("lang", "es");
-        div.setAttribute("dir", "rtl");
-        div.setAttribute("my-special-attribute", "new value");
-
-        console.log(document.getElementById("newId"));
-    </script>
 
 </body>
 </html>
