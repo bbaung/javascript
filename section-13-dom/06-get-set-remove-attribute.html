@@ -4,12 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>get set remove Attributes</title>
+
+    <style>
+        .bgred{
+            background-color: red;
+        }
+
+        .bggreen{
+            background-color: green;
+        }
+    </style>
 </head>
 <body>
 
     <h1>get set remove Attributes</h1>
 
     <div id="myDiv" class="bd" title="Body text" lang="en" dir="ltr" my-special-attribute="hello">hello!</div>
+
+
+    <h2>testing</h2>
+
+    <button type="button" onclick="changeRed()">red</button>
+
+    <button type="button" onclick="changeGreen()">green</button>
+
+    <button type="button" onclick="remove()">remove</button>
 
     <script>
 
@@ -34,6 +53,22 @@
         div.setAttribute("my-special-attribute", "new value");
 
         console.log(document.getElementById("newId"));
+
+
+        //testing
+        function changeRed(){
+            document.getElementsByTagName("h2")[0].setAttribute("class", "bgred");
+        }
+
+        function changeGreen(){
+            document.getElementsByTagName("h2")[0].setAttribute("class", "bggreen");
+        }
+
+        function remove(){
+            document.getElementsByTagName("h2")[0].removeAttribute("class");
+        }
+        
+
     </script>
     
 </body>
