@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>manipulating tables</title>
+</head>
+<body>
+
+    <h1>manipulating tables</h1>
+
+    <table border="1" style="width:100%; border-collapse: collapse;">
+        <thead>
+            <tr>
+                <th>Method</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>caption</td>
+                <td>Pointer to the &lt;caption&gt; element (if it exists).</td>
+            </tr>
+            <tr>
+                <td>tBodies</td>
+                <td>An HTMLCollection of &lt;tbody&gt; element</td>
+            </tr>
+            <tr>
+                <td>tFoot</td>
+                <td>Pointer to the &lt;tfoot&gt; element (if it exists).</td>
+            </tr>
+            <tr>
+                <td>tHead</td>
+                <td>Pointer to the &lt;thead&gt; element (if it exists).</td>
+            </tr>
+            <tr>
+                <td>rows</td>
+                <td>An HTMLCollection of all rows in the table.</td>
+            </tr>
+            <tr>
+                <td>createTHead()</td>
+                <td>Creates an empty &lt;thead&gt; element, places it into the table, and returns a reference</td>
+            </tr>
+            <tr>
+                <td>createTBody()</td>
+                <td>Creates a &lt;tbody&gt; element, places it into the table, and returns a reference</td>
+            </tr>
+            <tr>
+                <td>createTFoot()</td>
+                <td>Creates a &lt;tfoot&gt; element, places it into the table, and returns a reference</td>
+            </tr>
+            <tr>
+                <td>createCaption()</td>
+                <td>Creates a &lt;caption&gt; element, places it into the table , and returns a reference</td>
+            </tr>
+            <tr>
+                <td>insertRow()</td>
+                <td>Inserts a new row in the table at the specified index.</td>
+            </tr>
+            <tr>
+                <td>deleteRow()</td>
+                <td>Deletes a row from the table at the specified index.</td>
+            </tr>
+            <tr>
+                <td>insertCell()</td>
+                <td>Inserts a new cell in the row at the specified index.</td>
+            </tr>
+            <tr>
+                <td>deleteCell()</td>
+                <td>Deletes a cell from the row at the specified index.</td>
+            </tr>
+        </tbody>
+    </table> <br>
+    
+
+    <script>
+        var table = document.createElement('table');
+        table.border = "1";
+        table.style.width = "100%";
+
+        var tbody = table.createTBody();
+
+        var tr1 = tbody.insertRow(0);
+        var td11 = tr1.insertCell(0);
+        td11.appendChild(document.createTextNode('cell 1,1'));
+        var td21 = tr1.insertCell(1);
+        td21.appendChild(document.createTextNode('cell 1,2'));
+
+        var tr2 = tbody.insertRow(1);
+        var td12 = tr2.insertCell(0);
+        td12.appendChild(document.createTextNode('cell 1,2'));
+        var td22 = tr2.insertCell(1);
+        td22.appendChild(document.createTextNode('cell 2,2'));
+
+
+        document.body.appendChild(table);
+    </script>
+</body>
+</html>
