@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text type</title>
+</head>
+<body>
+
+    <h1>text type</h1>
+
+    <ul>
+        <li>nodeType is 3.</li>
+        <li>nodeName is "#text".</li>
+        <li>nodeValue is text contained in the node.</li>
+        <li>parentNode is an Element</li>
+        <li>Child nodes are not supported.</li>
+    </ul>
+    
+
+    <script>
+        let textNode = document.createTextNode("Hello");
+
+        let element  = document.createElement("div");
+        element.appendChild(textNode);
+        document.body.appendChild(element);
+
+        let textNode2 = document.createTextNode("World");
+        element.appendChild(textNode2);
+    
+    </script>
+</body>
+</html>
