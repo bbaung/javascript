@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>element traversal</title>
+</head>
+<body>
+
+    <h1>element traversal</h1>
+
+    <div>
+        <p>childElementCount - Returns the number of child elements.
+            <br>(excluds text nodes and comments)
+        </p>
+
+        <p>firstElementChild - Points to the first child that is an element.
+            <br>Element-only version of firstChild.
+        </p>
+
+        <p>lastElementChild - Points to the last child that is an element.
+            <br>Element-only version of lastChild.
+        </p>
+
+        <p>previousElementSibling - Points to the previous sibling that is an element.
+            <br>Element-only version of previousSibling.
+        </p>
+
+        <p>nextElementSibling - Points to the next sibling that is an element.
+            <br>Element-only version of nextSibling.
+        </p>
+    </div>
+    
+</body>
+
+    <script>
+        console.log("// childElementCount - Returns the number of child elements.");
+        console.log(document.body.childElementCount);
+
+        console.log("// firstElementChild - Points to the first child that is an element.");
+        console.log("// firstChild - Points to the first child node.");
+        console.log("// difference between firstElementChild and firstChild is that firstElementChild points to the first child that is an element. firstChild points to the first child node.");
+        console.log(document.body.firstElementChild);
+        console.log(document.body.firstChild);
+
+        console.log(document.body.children[1].childElementCount);
+    
+    </script>
+</html>
