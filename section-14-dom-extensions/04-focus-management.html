@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>focus management</title>
+
+    <style>
+        .card {
+            border: 1px solid black;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        button:focus {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>focus management</h1>
+
+    <div class="card">
+        <p>//The focus() method in JavaScript is used to set the focus on a specified element, such as an input field or a button. When an element is focused, it becomes the active element in the document, meaning it is ready to receive user input or interaction.</p>
+        <p>var button = document.getElementById("myButton");</p>
+        <p>button.focus();</p>
+        <p>alert(document.activeElement === button); //true</p>
+    </div>
+
+    <div class="card">
+        <p>//The hasFocus() method is used to determine if the document or any element within it has focus. It returns a boolean value: true if the document or any element within it has focus, and false otherwise.</p>
+        <p>var button = document.getElementById("myButton");</p>
+        <p>button.focus();</p>
+        <p>alert(document.hasFocus());</p>
+    </div>
+    
+    <br>
+
+    <button type="button" id="bOk" onclick="bOk()">ok</button>
+
+    <button type="button" id="bCancel" onclick="bCancel()">Cancel</button>
+
+    <p id="count">screen time <span>0</span> seconds</p>
+
+    <script>
+        
+        function okFocus() {
+            document.getElementById("bOk").focus();
+        }
+
+        
+        setInterval(function() {
+            let count = document.querySelector("#count span");
+            count.innerHTML = document.hasFocus() ? parseInt(count.innerHTML) + 1 : parseInt(count.innerHTML);
+        }, 1000);
+        
+
+        okFocus();
+    </script>
+</body>
+</html>
