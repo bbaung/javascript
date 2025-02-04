@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dom-extensions</title>
+
+    <style>
+
+        div {
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid black;
+            max-width: 800px;
+        }
+
+        div p{
+            margin: 0px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>dom-extensions , selectors-api</h1>
+
+    <h2>The querySelector() Method</h2>
+
+    <div>
+        <p>//get the body element</p>
+        <p>var body = document.querySelector("body");</p>
+        <br>
+
+        <p>//get the element with ID "myDiv"</p>
+        <p>var myDiv = document.querySelector("#myDiv");</p>
+        <br>
+
+        <p>//get first element with a class of "selected"</p>
+        <p>var selected = document.querySelector(".selected");</p>
+        <br>
+
+        <p>//get first image with class of "button"</p>
+        <p>var img = document.body.querySelector("img.button")</p>
+    </div>
+
+    <h2>The querySelectorAll() Method</h2>
+
+    <div>
+        <p>//get all &lt;em&gt; elements in a &lt;div&gt; (similar to getElementsByTagName("em"))</p>
+        <p>var ems = document.getElementById("myDiv").querySelectorAll("em");</p>
+        <br>
+
+        <p>//get all elements with class of "selected"</p>
+        <p>var selecteds = document.querySelectorAll(".selected");</p>
+        <br>
+
+        <p>//get all &lt;strong&gt; elements inside of &lt;p&gt; elements</p>
+        <p>var strongs = document.querySelectorAll("p strong");</p>
+    </div>
+
+    <h2>The matchesSelector() Method</h2>
+
+    <div>
+        <p>if (document.body.matchesSelector("body page1")){ <br>//true <br> }</p>
+    </div>
+    
+</body>
+</html>
