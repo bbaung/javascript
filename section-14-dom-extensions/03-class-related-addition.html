@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class related addition</title>
+
+    <style>
+        div {
+            background-color: lightgrey;
+            max-width: 800px;
+            border: 1px solid black;
+            margin: 20px;
+            padding: 10px;
+        }
+
+        div p{
+            margin: 0px;
+        }
+
+        .bor{
+            border: 2px solid yellow;
+        }
+
+        .bgred{
+            background-color: red;
+        }
+
+        .bgblue{
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>class related addition</h1>
+
+    <h2>The getElementsByClassName() Method</h2>
+
+    <div>
+        <p>//get all elements with a class containing "username" and "current", thought it 
+            <br>//doesn't matter if one is declared before the other
+        </p>
+        <p>var allCurrentUsernames = document.getElementByClassName("username current");</p>
+        
+        <br>
+
+        <p>//get all elements with a class of "selected" that exit in myDiv's subtree</p>
+        <p>var selected = document.getElementById("myDiv").getElementByClassName("selected");</p>
+    </div>
+
+    <h2>The classList Property</h2>
+
+    <div>
+        <ul>
+            <li>add(value) - Adds the given string value to the list.If the value 
+                <br>already exits, it will not be added.
+            </li>
+            <li>
+                contains(value) - indicates if the given value exits in the classList
+                <br>(true if so;false if not).
+            </li>
+            <li>
+                remove(value) - Removes the given string value from the list.
+            </li>
+            <li>
+                toggle(value) - If the value exits, remove it. If it does not exit, add it.
+            </li>
+        </ul>
+    </div>
+
+    <p id="para" class="bor">Class-related addition</p>
+    <button type="button" onclick="getclass()">GetClassList</button>
+    <button type="button" onclick="cadd()">Add</button>
+    <button type="button" onclick="cremove()">Remove</button>
+    <button type="button" onclick="ctoogle()">Toogle</button>
+    
+    <script>
+        let para = document.getElementById("para");
+        function getclass(){
+            console.log("//get the classList of the element");
+            console.log(para.classList);
+            alert(para.classList);
+        }
+
+        function cadd(){
+            console.log("//add a class to the element");
+            para.classList.add("bgred");
+            console.log(para.classList);
+        }
+
+        function cremove(){
+            console.log("//remove a class from the element");
+            para.classList.remove("bgred");
+            console.log(para.classList);
+        }
+
+        function ctoogle(){
+            console.log("//toggle a class from the element");
+            para.classList.toggle("bgblue");
+            console.log(para.classList);
+        }
+    </script>
+</body>
+</html>
