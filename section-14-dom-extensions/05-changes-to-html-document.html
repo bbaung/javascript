@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>changes to html document</title>
+
+    <style>
+
+        div {
+            border: 1px solid black;
+            padding: 10px;
+            margin: 10px;
+            max-width: 800px;
+        }
+
+        div p {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <h1>Changes to HTML document</h1>
+
+    <h2>The readyState Property</h2>
+
+    <div>
+        <p>loading - The document is loading.</p>
+        <p>interactive - The document is completely</p>
+        <p>complete - The document is completely loaded</p>
+
+        <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/readyState" target="_blank" rel="noopener noreferrer">
+            https://developer.mozilla.org/en-US/docs/Web/API/Document/readyState
+        </a>
+    </div>
+
+    <h2>The head Property</h2>
+
+    <div>
+        <p>var head = document.head || document.getElementByTagName("head")[0];</p>
+    </div>
+
+    <h2>Character Set Properties</h2>
+
+    <div>
+        <p>alert(document.charset); //"UTF-16"</p>
+        <p>document.charset = "UTF-8";</p>
+    </div>
+
+    <div>
+        <p>if(document.charset != document.defaultCharset){
+            <br>alert("Custom character set being used.");
+            <br>}
+        </p>
+    </div>
+
+    <h2>Custome Data Attributes</h2>
+
+    <div>
+        <p>&lt;div id="myDiv" data-appId="12345" data-myname="Nicholas"&gt; &lt;/div&gt;</p>
+    </div>
+
+    <div>
+        <p>var div = document.getElementById("myDiv");</p>
+        <br>
+
+        <p>//get the values</p>
+        <p>var appId = div.dataset.appId;</p>
+        <p>var myName = div.dataset.myname;</p>
+        <br>
+
+        <p>//set value</p>
+        <p>div.dataset.appId = 23456;</p>
+        <p>div.dataset.myname = "Michael";</p>
+        <br>
+
+        <p>//is there a "myname" value?</p>
+        <p>if (div.dataset.myname){
+            <br>alert("Hello," + div.dataset.myname);<br>
+            }
+        </p>
+    </div>
+</body>
+</html>
