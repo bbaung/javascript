@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>markup insertion</title>
+
+    <style>
+        div {
+            border: 1px solid black;
+            padding: 10px;
+            margin: 10px;
+            max-width: 800px;
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>markup insertion</h1>
+
+    <h2>//innerHtml</h2>
+
+    <div>
+        <p>normal text - Hello</p>
+
+        <p id="para_inner">Hello</p>
+    </div>
+
+    <h2>//outerHtml</h2>
+
+    <div>
+        <p>normal text - Hello</p>
+
+        <p id="para_outer">Hello</p>
+    </div>
+
+    <h2>The insertAdjacentHTML() Method</h2>
+
+    <div>
+        <p>normal text - Hello</p>
+
+        <p>//insert as previous sibling</p>
+
+        <p id="para_prev">Hello</p>
+
+        <p>//insert as first child</p>
+
+        <p id="para_first">Hello</p>
+
+        <p>//insert as last child</p>
+
+        <p id="para_last">Hello</p>
+
+        <p>//insert as next sibling</p>
+
+        <p id="para_next">Hello</p>
+    </div>
+
+    <script>
+        document.getElementById('para_inner').innerHTML = '<i>Hello</i>';
+
+        document.getElementById('para_outer').outerHTML = '<i>Hello</i>';
+
+        <!-- The insertAdjacentHTML() Method -->
+
+        document.getElementById('para_prev').insertAdjacentHTML('beforebegin', '<i>Hello World!</i>');
+
+        document.getElementById('para_first').insertAdjacentHTML('afterbegin', '<i>Hello World!</i>');
+
+        document.getElementById('para_last').insertAdjacentHTML('beforeend', '<i>Hello World!</i>');
+
+        document.getElementById('para_next').insertAdjacentHTML('afterend', '<i>Hello World!</i>');
+    </script>
+</body>
+</html>
