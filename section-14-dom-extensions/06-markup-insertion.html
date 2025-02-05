@@ -56,12 +56,28 @@
         <p id="para_next">Hello</p>
     </div>
 
+    <h2>//innerText</h2>
+
+    <div>
+        <p>normal text - Hello</p>
+
+        <p id="para_intext">Hello</p>
+    </div>
+
+    <h2>//outerText</h2>
+
+    <div>
+        <p>normal text - Hello</p>
+
+        <p id="para_outtext">Hello</p>
+    </div>
+
     <script>
         document.getElementById('para_inner').innerHTML = '<i>Hello</i>';
 
         document.getElementById('para_outer').outerHTML = '<i>Hello</i>';
 
-        <!-- The insertAdjacentHTML() Method -->
+        //The insertAdjacentHTML() Method  start
 
         document.getElementById('para_prev').insertAdjacentHTML('beforebegin', '<i>Hello World!</i>');
 
@@ -70,6 +86,13 @@
         document.getElementById('para_last').insertAdjacentHTML('beforeend', '<i>Hello World!</i>');
 
         document.getElementById('para_next').insertAdjacentHTML('afterend', '<i>Hello World!</i>');
+
+        //The insertAdjacentHTML() Method end
+
+        document.getElementById('para_intext').innerText = '<i>Hello</i>';
+
+        document.getElementById('para_outtext').outerText = '<i>Hello</i>';
+
     </script>
 </body>
 </html>
