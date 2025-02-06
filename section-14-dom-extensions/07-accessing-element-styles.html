@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>accessing element styles</title>
+</head>
+<body>
+
+    <h1>accessing element styles</h1>
+
+    <table border="1" style="width: 100%; text-align: left; border-collapse: collapse;">
+        <thead>
+            <tr>
+                <th style="background-color: #f2f2f2; padding: 8px;">CSS Property</th>
+                <th style="background-color: #f2f2f2; padding: 8px;">JavaScript Property</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="padding: 8px;">color</td>
+                <td style="padding: 8px;">element.style.color</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px;">background-color</td>
+                <td style="padding: 8px;">element.style.backgroundColor</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px;">font-size</td>
+                <td style="padding: 8px;">element.style.fontSize</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px;">margin</td>
+                <td style="padding: 8px;">element.style.margin</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px;">padding</td>
+                <td style="padding: 8px;">element.style.padding</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <div id="myDiv">Hello</div>
+
+    <script>
+        let myDiv = document.getElementById('myDiv');
+        myDiv.style.color = 'red';
+        myDiv.style.backgroundColor = 'black';
+        myDiv.style.fontSize = '24px';
+        myDiv.style.margin = '10px';
+        myDiv.style.padding = '10px';
+        myDiv.style.border = '1px solid #ccc';
+
+        console.log(myDiv.style.color);
+        console.log(myDiv.style.backgroundColor);
+    </script>
+    
+</body>
+</html>
