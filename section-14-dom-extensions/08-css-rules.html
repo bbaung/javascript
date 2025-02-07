@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css rules</title>
+
+    <style>
+        #myDiv{
+            width: 100px;
+            height: 100px;
+            border: 3px solid black;
+        }
+
+        #myDiv2{
+            width: 100px;
+            height: 100px;
+            border: 3px solid purple;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>css rules</h1>
+
+    <div id="myDiv">
+        <p>myDiv 1</p>
+    </div>
+
+    <div id="myDiv2">
+        <p>myDiv 2</p>
+    </div>
+
+    <script>
+        console.log("//document.styleSheets");
+        console.log(document.styleSheets);
+
+        console.log("//document.styleSheets[0]");
+        console.log(document.styleSheets[0]);
+
+        console.log("//document.styleSheets[0].cssRules");
+        console.log(document.styleSheets[0].cssRules);
+
+        console.log("//document.styleSheets[0].cssRules[0]");
+        console.log(document.styleSheets[0].cssRules[0]);
+
+        console.log("//document.styleSheets[0].cssRules[1]");
+        console.log(document.styleSheets[0].cssRules[1]);
+
+        console.log("//document.styleSheets[0].cssRules.length");
+        console.log(document.styleSheets[0].cssRules.length);
+
+        console.log("//creating css rules");
+        console.log(document.styleSheets[0].cssRules[0].style.backgroundColor);
+        console.log('document.styleSheets[0].insertRule("#myDiv2 {background-color: yellow;}", 0);');
+        document.styleSheets[0].insertRule("#myDiv2 {background-color: yellow;}", 0);
+        console.log(document.styleSheets[0].cssRules[2].style);
+
+
+        console.log("//modify css rules")
+        console.log(document.styleSheets[0].cssRules[2].style.borderWidth);
+        document.styleSheets[0].cssRules[2].style.borderWidth = "10px";
+        console.log(document.styleSheets[0].cssRules[2].style.borderWidth);
+
+
+        console.log("//delete rules")
+        console.log("//write down to test!")
+        console.log("document.styleSheets[0].deleteRule(0)");
+        //document.styleSheets[0].deleteRule(0);
+
+    </script>
+    
+</body>
+</html>
