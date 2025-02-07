@@ -4,6 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>accessing element styles</title>
+
+    <style>
+        div{
+            border: 1px solid black;
+            padding: 10px;
+            margin: 10px;
+            max-width: 800px;
+        }
+
+        div p{
+            margin: 0px;
+        }
+    </style>
 </head>
 <body>
 
@@ -43,6 +56,26 @@
 
     <div id="myDiv">Hello</div>
 
+    <div>
+        <p>myDiv.style.cssText = "width:25px; height: 100px; background-color: green";</p>
+        <p>alert(myDiv.style.cssText);</p>
+    </div>
+
+    <div>
+        <p>for (var i= 0, len = myDiv.style.length; i < len; i++){</p>
+        <p> alert(myDiv.style[i]);  //or myDiv.style.item(i)</p>
+        <p>}</p>
+    </div>
+
+    <div>
+        <p>var pop, value, i, len;</p>
+        <p>for (i=0, len=myDiv.style.length; i< len; i++){</p>
+        <p>     prop = myDiv.style[i]; //or myDiv.style.item(i)</p>
+        <p>     value = myDiv.style.getPropertyValue(prop);</p>
+        <p>     alert(prop + ":" + value);</p>
+        <p>myDiv.style.removeProperty("border");</p>
+    </div>
+
     <script>
         let myDiv = document.getElementById('myDiv');
         myDiv.style.color = 'red';
@@ -54,6 +87,8 @@
 
         console.log(myDiv.style.color);
         console.log(myDiv.style.backgroundColor);
+
+        console.log(myDiv.style);
     </script>
     
 </body>
