@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>offset and client dimensions</title>
+
+    <style>
+        #myDiv{
+            border: 10px solid black;
+            background-color: gray;
+            color: white;
+            padding: 20px;
+            width: 20%;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="myDiv">Hello</div>
+    
+    <script>
+        console.log("#offsetHeight");
+        console.log(myDiv.offsetHeight);
+
+        console.log("#offsetWidth");
+        console.log(myDiv.offsetWidth);
+
+        console.log("#offsetTop");
+        console.log(myDiv.offsetTop);
+
+        console.log("#offsetLeft");
+        console.log(myDiv.offsetLeft);
+
+        console.log("#clientHeight");
+        console.log(myDiv.clientHeight);
+
+        console.log("#clientWidth");
+        console.log(myDiv.clientWidth);
+    </script>
+</body>
+</html>
