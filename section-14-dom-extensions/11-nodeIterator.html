@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nodeIterator</title>
+</head>
+<body>
+
+    <h1>nodeIterator</h1>
+
+    <ul>
+        <li>root - The node in the tree that you want to start searching from.</li>
+        <li>whatToShow - A numerical code indicating which nodes should be visited.</li>
+        <li>filter - A NodeFilter object or a function indicating whether a particular node should be accepted or rejected.</li>
+        <li>entityReferenceExpansion - A Boolean value indicating whether entity references should be expanded.This has no effect in HTML pages,because entity references are never expanded.</li>
+    </ul>
+
+    <div id="div">
+        <p>p1</p>
+        <p>p2</p>
+        <h1>h1</h1>
+        <h1>h2</h1>
+        <p>p3</p>
+    </div>
+
+    <script>
+        let div = document.getElementById('div');
+
+        let whatToShow = NodeFilter.SHOW_ELEMENT;
+
+        let filter = function(node){
+            return node.tagName.toLowerCase() == 'p' ?
+                NodeFilter.FILTER_ACCEPT:
+                NodeFilter.FILTER_SKIP;
+        }
+
+        let iterator = document.createNodeIterator(div,whatToShow,filter,false);
+
+        let node = iterator.nextNode();
+
+        setInterval(function() {
+            if (node) {
+                console.log(node); // Log the current node
+                node = iterator.nextNode(); // Move to the next node
+            } else {
+                clearInterval(interval); // Stop the interval when there are no more nodes
+            }
+        }, 1500);
+    </script>
+    
+</body>
+</html>
