@@ -4,6 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>eventFlow and eventHandlers</title>
+
+    <style>
+        div{
+            border: 1px solid black;
+            padding: 15px;
+            max-width: 500px;
+            margin: 30px;
+        }
+
+        div p{
+            margin: 0px;
+        }
+    </style>
 </head>
 <body>
 
@@ -36,12 +49,58 @@
         <button type="submit">submit</button>
     </form>
 
+    <h2>DOM Level 1 Event Handlers</h2>
+
+    <div>
+        <p>var btn = document.getElementById("myBtn")</p>
+        <p>btn.onclick = function(){</p>
+        <p>alert("Clicked"); <br> };</p>
+    </div>
+
+    <div>
+        <p>var btn = document.getElementById("myBtn");</p>
+        <p>btn.onclick = function(){</p>
+        <p>alert(this.id); <br> }; //"myBtn"</p>
+    </div>
+
+    <div>
+        <p>btn.onclick = null; //remove event handler</p>
+    </div>
+
+    <h2>DOM Level 2 Event Handlers</h2>
+
+    <div>
+        <p>var btn = document.getElementById("myBtn");</p>
+        <p>btn.addEventListener("click",function(){)</p>
+        <p>alert(this.id);</p>
+        <p>},false)</p>
+    </div>
+
+    <div>
+        <p>var btn = document.getElementById("myBtn");</p>
+        <p>btn.addEventListener("click",function(){</p>
+        <p>alert(this.id);</p>
+        <p>},false);</p>
+        <p>btn.addEventListener("click"),function(){</p>
+        <p>alert("Hello world");</p>
+        <p>},false);</p>
+        <p></p>
+        <p></p>
+    </div>
+
+    <div>
+        <p>var btn = getElementById("myBtn");</p>
+        <p>var handler = function(){</p>
+        <p>alert(this.id); <br> };</p>
+        <p> <br> btn.addEventListener(click,handler, false); //remove event handlers works!</p>
+        <p></p>
+    </div>
+
+
     <script>
         function showMessage(){
             console.log("Hello Everyone")
-        }
-        
-        
+        }          
     </script>
 
 </body>
