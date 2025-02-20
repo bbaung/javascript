@@ -4,6 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ui element</title>
+
+    <style>
+        div{
+            max-width: 800px;
+            border: 1px solid black;
+            margin: 20px 0px;
+            padding: 10px;
+        }
+    </style>
+
+
+    <script>
+
+        <!-- document.getElementById("para").innerHTML = "World"; -->
+
+
+        window.onload = function(){
+            
+            document.getElementById("para2").innerHTML = "Earth is green and blue.";
+
+            console.log("it's loaded")
+        }
+
+    </script>
 </head>
 <body>
     <h1>User interface (UI) events</h1>
@@ -20,6 +44,20 @@
     </ul>
 
     <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/UI_Events">https://developer.mozilla.org/en-US/docs/Web/API/UI_Events</a>
-    
+     
+
+    <div>
+
+        <h2>window.onload</h2>
+
+        <p>window.onload is an event that triggers when the entire page, including all dependent resources such as stylesheets and images, has finished loading. The <code>defer</code> attribute, on the other hand, is used with the <code>&lt;script&gt;</code> tag to ensure that the script is executed after the document has been parsed but before the <code>DOMContentLoaded</code> event.</p>
+
+
+        <p>>>>test</p>
+
+        <p id="para">Hello</p>
+
+        <p id="para2">Hello</p>
+    </div>
 </body>
 </html>
