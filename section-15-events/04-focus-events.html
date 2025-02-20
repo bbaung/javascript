@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>focus events</title>
+
+    <style>
+        .container{
+            max-width: 800px;
+            border: 1px solid black;
+            margin: 20px 0px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>focus events</h1>
+
+    <ul>
+        <li>blur</li>
+        <li>focus</li>
+        <li>focusin</li>
+        <li>focusout</li>
+    </ul>
+
+    <div class="container">
+
+        <div id="d1">
+            <input type="text" name="name" placeholder="name" id="in1">
+
+            <input type="text" name="company" placeholder="company" id="in2">
+        </div>
+
+        <p id="para">
+            hello
+        </p>
+
+    </div>
+
+    <script>
+        let text = document.getElementById("para");
+        let div1 = document.getElementById("d1");
+        let input1 = document.getElementById("in1");
+        let input2 = document.getElementById("in2");
+        
+        input1.addEventListener("focus",() => {
+            text.innerHTML = text.innerHTML + " ,<br>input (name) is focused";
+        });
+
+        input1.addEventListener("blur",() =>{
+            text.innerHTML = text.innerHTML + " ,<br>input (name) is blur";
+        });
+
+        div1.addEventListener("focusin", () =>{
+            text.innerHTML = text.innerHTML + " ,<br>div (include 2 put) is focused in"
+        });
+
+        div1.addEventListener("focusout", () =>{
+            text.innerHTML = text.innerHTML + " ,<br>div (include 2 put) is focused out"
+        });
+
+    </script>
+    
+</body>
+</html>
