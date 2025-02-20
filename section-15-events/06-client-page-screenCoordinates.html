@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>client page screenCoordinates</title>
+
+    <style>
+        .float{
+            position: fixed;
+            width: 400px;
+            height: 400px;
+            background-color: gray;
+            overflow: scroll;
+            top: 0;
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>client page screenCoordinates</h1>
+    
+
+    <ul>
+        <li>Client Coordinates</li>
+        <li>Page Coordinates</li>
+        <li>Screen Coordinates</li>
+    </ul>
+
+    <div class="float">
+        Hello
+    </div>
+
+    <script>
+        document.body.style.height = "2400px";
+
+        let float_div = document.getElementsByClassName("float");
+
+        document.body.onclick = () => {
+           float_div[0].innerHTML = float_div[0].innerHTML + " ,<br>it's work";
+        }
+    </script>
+</body>
+</html>
