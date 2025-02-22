@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>button events</title>
+
+    <style>
+        .float{
+            position: fixed;
+            width: 400px;
+            height: 400px;
+            background-color: gray;
+            overflow: scroll;
+            scrollbar-width: none;
+            top: 10px;
+            right: 10px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .container{
+            border: 1px solid black;
+            margin: 20px 0px;
+            padding: 10px;
+            max-width: 600px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>buttons</h1>
+
+    <div class="container">
+
+        <ul>
+            <li>0 for the primary mouse button,</li>
+            <li>1 for the middle mouse button (usually the scroll wheel button), and</li>
+            <li>2 for the secondary mouse button.</li>
+        </ul>
+
+    </div>
+
+    <div class="float">
+        <p>click here with mouse</p>
+    </div>
+
+
+    <script>
+        let float_div = document.querySelector(".float");
+        let float_text = document.querySelector(".float p");
+
+        <!-- float_div.onclick = (event) => {
+            if(event.button == 0){
+                float_text.innerHTML += "Primary button clicked";
+            }else if(event.button == 1){
+                float_text.innerHTML += "Middle button clicked";
+            }else if(event.button == 2){
+                float_text.innerHTML += "Secondary button clicked";
+            }
+        } -->
+
+        float_div.addEventListener("mousedown", (event) => {
+
+            if(event.button == 0){
+            float_text.innerHTML += "Primary button clicked<br>";
+            }else if(event.button == 1){
+            float_text.innerHTML += "Middle button clicked<br>";
+            }else if(event.button == 2){
+            float_text.innerHTML += "Secondary button clicked<br>";
+            }
+
+        });
+    </script>
+    
+</body>
+</html>
