@@ -29,7 +29,11 @@
     </ul>
 
     <div class="float">
-        Hello
+        click
+    </div>
+
+    <div>
+        <p id="text">nice</p>
     </div>
 
     <script>
@@ -38,8 +42,11 @@
         let float_div = document.getElementsByClassName("float");
 
         document.body.onclick = () => {
-           float_div[0].innerHTML = float_div[0].innerHTML + " ,<br>it's work";
+           float_div[0].innerHTML = float_div[0].innerHTML + " ,<br>it's work" + "<br>citentX - " + event.clientX +  " , " + "clientY - " + event.clientY + "<br>pageX - " + event.pageX + " , " + "pageY - " + event.pageY + "<br>screenX - " + event.screenX + " , " + "screenY - " + event.screenY;
         }
+
+
+        let text = document.getElementById("text");
     </script>
 </body>
 </html>
