@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>keyboard events</title>
+
+    <style>
+        .float{
+            position: fixed;
+            width: 400px;
+            height: 400px;
+            background-color: gray;
+            overflow: scroll;
+            top: 0;
+            right: 0;
+        }
+
+        .container{
+            border: 1px solid black;
+            margin: 20px 0px;
+            padding: 10px;
+            max-width: 600px;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <h1>keyboard events</h1>
+
+
+    <div class="float">
+        text
+    </div>
+
+    <h2>Modifier keys</h2>
+
+
+    <div class="container">
+        <ul>
+            <li>event.shiftKey → true if Shift is pressed.</li>
+            <li>event.ctrlKey → true if Ctrl is pressed.</li>
+            <li>event.altKey → true if Alt (or Option on macOS) is pressed.</li>
+            <li>event.metaKey → true if Meta (Windows key / Command on macOS) is pressed.</li>
+        </ul>
+
+        <button id="md_keys" type="button">button</button>
+    </div>
+
+</body>
+</html>
