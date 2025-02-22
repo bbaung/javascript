@@ -31,7 +31,7 @@
 
 
     <div class="float">
-        text
+        <p>text</p>
     </div>
 
     <h2>Modifier keys</h2>
@@ -47,6 +47,30 @@
 
         <button id="md_keys" type="button">button</button>
     </div>
+
+
+    <script>
+        let float_div = document.querySelector(".float p");
+        let btn_md_keys = document.getElementById("md_keys");
+
+        btn_md_keys.onclick = (event) => {
+
+           console.log(float_div.innerHTML);
+
+           if(event.shiftKey){
+               float_div.innerHTML = float_div.innerHTML + " ,<br>Shift key + button clicked";
+           }else if(event.ctrlKey){
+               float_div.innerHTML = float_div.innerHTML +  " ,<br>Ctrl key + button clicked";
+           }else if(event.altKey){
+               float_div.innerHTML = float_div.innerHTML +  " ,<br>Alt key + button clicked";
+            }else if(event.metaKey){
+            float_div.innerHTML = float_div.innerHTML +  " ,<br>Meta key(window or command) + button clicked";
+            }else{
+            float_div.innerHTML = float_div.innerHTML +  " ,<br>button clicked";
+            }
+        }
+
+    </script>
 
 </body>
 </html>
