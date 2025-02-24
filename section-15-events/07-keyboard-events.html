@@ -14,13 +14,20 @@
             overflow: scroll;
             top: 0;
             right: 0;
-        }
-
+            display: flex;
+            flex-direction: column-reverse;
+            }
+        
         .container{
             border: 1px solid black;
             margin: 20px 0px;
             padding: 10px;
             max-width: 600px;
+        }
+
+        .sub-list{
+            padding-left: 100px;
+            list-style-type: circle;
         }
 
     </style>
@@ -48,10 +55,38 @@
         <button id="md_keys" type="button">button</button>
     </div>
 
+    <h2>keyboard events</h2>
+
+
+    <div class="container">
+ 
+        <ul>
+            <li>keydown</li>
+            <li>keypress</li>
+            <li>keyup</li>
+            <li>event.key</li>
+            <li>event.keyCode</li>
+            <li>event.location</li>
+        </ul>
+
+        <ul class="sub-list">
+            <li>0 for default keyboard,</li>
+            <li>1 for left location (such as the left Alt key),</li>
+            <li>2 for right location (such as the right Shift key),</li>
+            <li>3 for the numeric keyboard,</li>
+            <li>4 for mobile (indicating a virtual keypad), or</li>
+            <li>5 for joystick (such as the Nintendo Wii controller)</li>
+        </ul>
+
+        <textarea name="text" placeholder="text"  id="inp" cols="50" rows="5"></textarea>
+    </div>
+
 
     <script>
         let float_div = document.querySelector(".float p");
+
         let btn_md_keys = document.getElementById("md_keys");
+        let key_input = document.getElementById("inp");
 
         btn_md_keys.onclick = (event) => {
 
@@ -69,7 +104,18 @@
             float_div.innerHTML = float_div.innerHTML +  " ,<br>button clicked";
             }
         }
+        key_input.onfocus = () => {
+            
+            key_input.onkeydown = (event) => {
+            console.log(event.key);
+            console.log(event.keyCode);
+            console.log(event.location);
 
+            float_div.innerHTML = float_div.innerHTML + "<br>key: " + event.key + ", keyCode: " + event.keyCode + ", location: " + event.location;
+            }
+        }
+
+        
     </script>
 
 </body>
