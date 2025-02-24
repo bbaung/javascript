@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mutation events</title>
+
+    <style>
+        .container{
+            max-width: 800px;
+            margin: 20px 0px;
+            padding: 10px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>mutation events</h1>
+
+    <ul>
+        <li>DOMSubtreeModified - Fires when any change occurs to the DOM strature.This is a catchall event that fires after any of the other events fire.</li>
+        <li>DOMNodeInserted - Fires after a node is inserted as a child of another node.</li>
+        <li>DOMNodeRemoved - Fires before a node is removed from its parent node.</li>
+    </ul>
+
+    <div class="container">
+        <p>Mutation Events, including `DOMSubtreeModified`, `DOMNodeInserted`, `DOMNodeRemoved`, `DOMNodeRemovedFromDocument`, `DOMNodeInsertedIntoDocument`, and `DOMCharacterDataModified`, are quite bad for page performance, and also significantly increase the complexity of adding new features to the Web. These APIs were deprecated from the spec (  ) in 2011, and were replaced (in 2012) by the much better-behaved Mutation Observer API. Usage of the obsolete Mutation Events must now be migrated to Mutation Observer.
+
+            Mutation event support will be disabled by default starting in Chrome 127, around July 30, 2024. Code should be migrated before that date to avoid site breakage. If more time is needed, there are a few options:
+            
+             - The Mutation Events Deprecation trial (https://developer.chrome.com/origintrials/#/view_trial/919297273937002497) can be used to re-enable the feature for a limited time on a given site. This can be used through Chrome 134, ending March 25, 2025.
+            - A MutationEventsEnabled enterprise policy (https://chromeenterprise.google/policies/#MutationEventsEnabled) can also be used for the same purpose, also through Chrome 134.
+            
+            Please see this blog post for more detail:
+            https://developer.chrome.com/blog/mutation-events-deprecation</p>
+    </div>
+
+</body>
+</html>
