@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text event</title>
+
+    <style>
+        .float{
+            position: fixed;
+            width: 400px;
+            height: 400px;
+            background-color: gray;
+            overflow: scroll;
+            top: 0;
+            right: 0;
+            display: flex;
+            flex-direction: column-reverse;
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <div class="float">
+        <p>text</p>
+    </div>
+
+    <h1>text event</h1>
+
+    <input class="text" type="text" name="text" placeholder="text" id="inp">
+
+
+    <script>
+
+        let float_div = document.querySelector('.float p');
+
+        let input = document.querySelector('.text');
+
+        input.addEventListener('input', function(event){
+            float_div.innerHTML = float_div.innerHTML + " ,<br>" + event.data;
+        });
+
+    </script>
+    
+</body>
+</html>
