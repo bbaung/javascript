@@ -22,6 +22,10 @@
             border-radius: 5px;
         }
 
+        .max-600{
+            max-width: 600px;
+        }
+
     </style>
 </head>
 <body>
@@ -42,6 +46,15 @@
         </ul>
     </div>
 
+    <h2>beforeunload event</h2>
+
+    <div class="container">
+        <p>The <code>beforeunload</code> event is fired when the window, the document and its resources are about to be unloaded. The document is still visible and the event is still cancelable.</p>
+    
+        <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/beforeunload_event">beforeunload event</a>
+    </div>
+
+
     <script>
         let container = document.querySelector('.container');
         let menu = document.querySelector('.menu');
@@ -56,6 +69,12 @@
         container.addEventListener('click', function(event){
             menu.style.visibility = 'hidden';
         });
+
+
+        window.addEventListener('beforeunload', function(event){
+            event.returnValue = 'Are you sure you want to leave?';
+        });
+        
     </script>
     
 </body>
