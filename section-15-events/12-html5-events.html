@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html5 events</title>
+
+    <style>
+        .container{
+            border: 5px solid black;
+            margin: 20px 0px;
+            padding: 10px;
+            max-width: 600px;
+            height: 300px;
+        }
+
+        .menu{
+            position: absolute;
+            visibility: hidden;
+            background-color: yellowgreen;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>html5 events</h1>
+
+    <h2>contextmenu events</h2>
+
+    <div class="container">
+
+    </div>
+
+    <div class="menu">
+        <ul>
+            <li>item 1</li>
+            <li>item 2</li>
+            <li>item 3</li>
+        </ul>
+    </div>
+
+    <script>
+        let container = document.querySelector('.container');
+        let menu = document.querySelector('.menu');
+
+        container.addEventListener('contextmenu', function(event){
+            event.preventDefault();
+            menu.style.visibility = 'visible';
+            menu.style.left = event.clientX+'px';
+            menu.style.top = event.clientY+'px';
+        });
+
+        container.addEventListener('click', function(event){
+            menu.style.visibility = 'hidden';
+        });
+    </script>
+    
+</body>
+</html>
