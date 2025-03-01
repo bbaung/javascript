@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>resetting forms</title>
+
+    <style>
+        .container{
+            border: 5px solid black;
+            margin: 20px 0px;
+            padding: 10px;
+            max-width: 600px;
+            height: 300px;
+        }
+
+        p{
+            margin: 0px;
+            padding: 0px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>resetting forms</h1>
+
+    <form method="get" name="form1" action="index.php">
+        <input type="text" name="username">
+
+        <input type="submit" name="form_submit">
+
+        <input type="reset">
+    </form>
+
+    <hr>
+
+    <button id="form_button" form="form1">Submit</button>
+
+    <button id="form_reset">reset</button>
+
+    <script>
+        let myForm = document.forms["form1"];
+
+        myForm.addEventListener("submit", function(event){
+            event.preventDefault();
+            alert("form submitted");
+        });
+
+        form_button.addEventListener("click", function(){
+            myForm.submit();
+        });
+
+        myForm.addEventListener("reset", function(){
+            alert("form reset");
+            myForm.reset();
+        });
+
+        form_reset.addEventListener("click", function(){
+            myForm.reset();
+        });
+    </script>
+    
+</body>
+</html>
