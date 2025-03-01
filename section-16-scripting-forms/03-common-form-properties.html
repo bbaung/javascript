@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>common form properties</title>
+
+    <style>
+        .container{
+            border: 5px solid black;
+            margin: 20px 0px;
+            padding: 10px;
+            max-width: 600px;
+        }
+
+        p{
+            margin: 0px;
+            padding: 0px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>common form properties</h1>
+
+    <div class="container">
+        <p>var form = document.getElementById("myForm");</p>
+        <p>var field = form.elements[0];</p>
+        <br>
+
+        <p>//change the value</p>
+        <p>field.value = "Another value";</p>
+        <br>
+
+        <p>//check the value of form</p>
+        <p>alert(field.form === form);  //true</p>
+        <br>
+
+        <p>//set focus to the field</p>
+        <p>field.focus();</p>
+        <br>
+
+        <p>//disable the field</p>
+        <p>field.disable = true</p>
+        <br>
+
+        <p>//change the type of field (not recommended, but possible for &lt;input&gt;)</p>
+        <p>field.type = "checkbox"</p>
+    </div>
+
+    <h2>Form 1</h2>
+
+    <form method="get" name="form1" action="index.php">
+        <input type="text" name="username">
+
+        <input type="submit" name="form_submit">
+
+        <input type="reset">
+    </form>
+
+    <hr>
+
+    <button id="form_button" form="form1">Submit</button>
+
+    <button id="form_reset">reset</button>
+
+    <hr>
+
+    <h2>Form 2</h2>
+
+    <form method="get" name="form2" action="index.php">
+        <ul>
+            <li>
+                <input type="radio" name="color" value="red">Red
+            </li>
+
+            <li>
+                <input type="radio" name="color" value="green">Green
+            </li>
+
+            <li>
+                <input type="radio" name="color" value="blue">Blue
+            </li>
+        </ul>
+
+    </form>
+
+    <script>
+        let myForm = document.forms["form1"];
+
+        myForm.addEventListener("submit", function(event){
+            event.preventDefault();
+            alert("form submitted");
+        });
+
+        form_button.addEventListener("click", function(){
+            myForm.submit();
+        });
+
+        myForm.addEventListener("reset", function(){
+            alert("form reset");
+            myForm.reset();
+        });
+
+        form_reset.addEventListener("click", function(){
+            myForm.reset();
+        });
+
+        let form_2 = document.forms["form2"];
+        let colorFields = form_2.elements["color"];
+
+        alert(colorFields.length);
+        console.log("colorFiels.length : "+ colorFields.length);
+    </script>
+    
+</body>
+</html>
