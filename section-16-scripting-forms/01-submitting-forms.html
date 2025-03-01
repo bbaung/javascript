@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>submitting forms</title>
+
+    <style>
+        .container{
+            border: 5px solid black;
+            margin: 20px 0px;
+            padding: 10px;
+            max-width: 600px;
+            height: 300px;
+        }
+
+        p{
+            margin: 0px;
+            padding: 0px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>submitting forms</h1>
+
+    <h2>FORM BASICS</h2>
+
+    <ul>
+        <li>acceptCharset - The character sets that the server can process; equivalent to the HTML accept-charset attribute.</li>
+        <li>action - The URL to send the request to;equivalent to the HTML action attribute.</li>
+        <li>elements - An HTMLCollection of all controls in the form.</li>
+        <li>lenght - The number of controls in the form.</li>
+        <li>method - The type of HTTP request to send, typically "get" or "post";equivalent to the HTML method attribute.</li>
+        <li>name - The name of the form;equivalent to the HTML name attribute.</li>
+        <li>reset() - Resets all form fields to their default values.</li>
+        <li>submit() - Submits the form.</li>
+        <li>target() - The name of the window to use for sending the request and receiving the response;equivalent to the HTML target attribute.</li>
+    </ul>
+
+    <h2>Submitting Forms</h2>
+
+    <div class="container">
+        <p>var form = document.getElementById("form1");</p>
+        <br>
+
+        <p>var form = document.querySelector('form1');</p>
+        <p>//get the first form in the page.</p>
+
+        <p>var myForm = document.forms["form2"];</p>   
+        <p>//get the form with the name "form2".</p>
+
+    </div>
+
+    <h2>Form simple</h2>
+
+    <form method="get" name="form1" action="index.php">
+        <input type="text" name="username">
+
+        <input type="submit" name="form_submit">
+    </form>
+
+    <hr>
+
+    <button type="submit" id="form_button" form="form1">Submit</button>
+
+    <script>
+        let myForm = document.forms["form1"];
+
+        myForm.addEventListener("submit", function(event){
+            event.preventDefault();
+            alert("form submitted");
+        });
+
+        form_button.addEventListener("click", function(){
+            myForm.submit();
+        });
+    </script>
+    
+</body>
+</html>
