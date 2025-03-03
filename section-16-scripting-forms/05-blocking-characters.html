@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>blocking characters</title>
+
+    <style>
+        .container{
+            border: 5px solid black;
+            margin: 20px 0px;
+            padding: 10px;
+            max-width: 600px;
+        }
+
+        p{
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .float{
+            position: fixed;
+            top: 10px;
+            right: 20px;
+            background-color: grey;
+            width: 300px;
+            height: 300px;
+            border: 1px solid black;
+            padding: 5px;
+            border-radius: 5px;
+            overflow-y: scroll;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>blocking characters</h1>
+
+
+    <h2>Form 1</h2>
+
+    <form method="get" name="form1" action="index.php">
+        <input type="text" name="username">
+
+        <input type="submit" name="form_submit">
+
+        <input type="reset">
+    </form>
+
+    <hr>
+
+
+    <script>
+        let myForm = document.forms["form1"];
+        let mySelect = myForm.elements["username"];
+
+        let pattern = /[a-z]/;
+        
+        mySelect.addEventListener("input", (event) => {
+            if (!pattern.test(event.data)) {
+            alert("only alphabets are allowed");
+            event.target.value = event.target.value.slice(0, -1);
+            }
+        });
+
+        myForm.addEventListener("submit", function(event){
+            event.preventDefault();
+            alert("form submitted");
+        });
+
+
+    </script>
+    
+</body>
+</html>
