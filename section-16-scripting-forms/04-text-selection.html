@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>common form properties</title>
+
+    <style>
+        .container{
+            border: 5px solid black;
+            margin: 20px 0px;
+            padding: 10px;
+            max-width: 600px;
+        }
+
+        p{
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .float{
+            position: fixed;
+            top: 10px;
+            right: 20px;
+            background-color: grey;
+            width: 300px;
+            height: 300px;
+            border: 1px solid black;
+            padding: 5px;
+            border-radius: 5px;
+            overflow-y: scroll;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>text selection</h1>
+
+    <div class="float">
+        <p>>>>text box</p>
+    </div>
+
+    <h2>Form 1</h2>
+
+    <form method="get" name="form1" action="index.php">
+        <input type="text" name="username">
+
+        <input type="submit" name="form_submit">
+
+        <input type="reset">
+    </form>
+
+    <hr>
+
+    <button id="form_button" form="form1">Submit</button>
+
+    <button id="form_reset">reset</button>
+
+    <hr>
+
+    <h2>Form 2</h2>
+
+    <form method="get" name="form2" action="index.php">
+        <ul>
+            <li>
+                <input type="radio" name="color" value="red">Red
+            </li>
+
+            <li>
+                <input type="radio" name="color" value="green">Green
+            </li>
+
+            <li>
+                <input type="radio" name="color" value="blue">Blue
+            </li>
+        </ul>
+
+    </form>
+
+    <div class="container">
+        <p>textbox.value = "Hello World!"</p><br>
+
+        <p>//select text</p>
+        <p>textbox.setSelectionRange(0,textbox.value.length); //"Hello World!"</p><br>
+
+        <p>//select first three characters</p>
+        <p>textbox.setSelectionRange(0,3); //"Hel"</p><br>
+
+        <p>//select characters 4 through 6</p>
+        <p>textbox.setSelectionRange(4,7); //"o w"</p>
+    </div>
+
+    <script>
+        let myForm = document.forms["form1"];
+        let mySelect = myForm.elements["username"];
+        let float_div = document.querySelector(".float p");
+
+        mySelect.addEventListener("select", function(){
+
+            float_div.innerHTML = float_div.innerHTML + " ,<br> <br>" + "noti : text selected";
+            float_div.innerHTML = float_div.innerHTML + " ,<br>" + "this.value : " + this.value;
+            float_div.innerHTML = float_div.innerHTML + " ,<br>" + "this.selectionStart : " + this.selectionStart;
+            float_div.innerHTML = float_div.innerHTML + " ,<br>" + "this.selectionEnd : " + this.selectionEnd;
+            float_div.innerHTML = float_div.innerHTML + " ,<br>" + "slected text : " + this.value.substring(this.selectionStart, this.selectionEnd);
+        });
+
+        myForm.addEventListener("submit", function(event){
+            event.preventDefault();
+            alert("form submitted");
+        });
+
+        form_button.addEventListener("click", function(){
+            myForm.submit();
+        });
+
+        myForm.addEventListener("reset", function(){
+            alert("form reset");
+            myForm.reset();
+        });
+
+        form_reset.addEventListener("click", function(){
+            myForm.reset();
+        });
+
+        let form_2 = document.forms["form2"];
+        let colorFields = form_2.elements["color"];
+
+    </script>
+    
+</body>
+</html>
