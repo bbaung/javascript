@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form-require-alternateInput-numericRange</title>
+
+    <style>
+        .container{
+            border: 1px solid black;
+            margin: 20px 0px;
+            padding: 10px;
+            max-width: 600px;
+        }
+
+        p{
+            margin: 0px;
+            padding: 0px;
+        }
+    </style>
+        
+</head>
+<body>
+
+    <h1>Form Require Alternate Input Numeric Range</h1>
+
+    <h2>Require Fields</h2>
+
+    <div class="container">
+        <p>&lt;input type="text" name="username" required&gt;</p>
+        <br>
+        <p>var isUsernameRequired = document.form[0].elements["username"].required;</p>
+    </div>
+    
+    <h2>Alternate Input Types</h2>
+
+    <div class="container">
+        <p>&lt;input type = "email"&gt;</p>
+        <p>&lt;input type = "url" name="homepage"</p>
+        <br>
+        <p>let input = document.createElement("input");</p>
+        <p>input.type = "email"</p>
+    </div>
+
+    <h2>Numeric Ranges</h2>
+
+    <div class="container">
+        <p>&lt;input type="number"  min="0" max="100" step="5" name="count"</p>
+        <br>
+        <p>input.setUP();   //increase by one</p>
+        <p>input.setUP(5);  //increase by five</p>
+        <p>input.setDown(); //decrement by one</p>
+        <p>input.setDown(10); //decrement by ten</p>
+    </div>
+</body>
+</html>
