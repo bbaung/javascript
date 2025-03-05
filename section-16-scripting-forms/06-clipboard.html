@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clipboard</title>
+
+    <style>
+        
+        .float{
+            position: fixed;
+            top: 10px;
+            right: 20px;
+            background-color: grey;
+            width: fit-content;
+            height: fit-content;
+            border: 1px solid black;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Dealing with the Clipboard</h1>
+
+    <div class="float">
+        <textarea id="float_text" cols="50" rows="15"></textarea>
+    </div>
+
+    <ul>
+        <li>beforecopy - Fires just before the copy operation takes place.</li>
+        <li>copy - Fires when the copy operation takes place.</li>
+        <li>beforecut - Fires just before the cut operation takes place.</li>
+        <li>cut - Fires when the cut operation takes place.</li>
+        <li>beforepaste - Fires just before the paste operation takes place.</li>
+        <li>paste - Fires when the paste operation takes place.</li>
+    </ul>
+
+    <h2>Form - 1, event lister on beforecopy , copy event</h2>
+
+    <form name="form1" action="get">
+        <input type="text" name="inp">
+    </form>
+
+    <h2>Form -2 , prevent beforecopy , copy event</h2>
+
+    <form name="form2" action="get">
+        <input type="text" name="inp2">
+    </form>
+
+    <script>
+        let form1 = document.forms["form1"];
+        let form2 = document.forms["form2"];
+
+        form1.elements["inp"].addEventListener("beforecopy", (event) => {
+            alert("before copy");
+        });
+
+        form1.elements["inp"].addEventListener("copy", (event) => {
+            alert("copy");
+        });
+
+        form2.elements["inp2"].addEventListener("beforecopy", (event) => {
+            event.preventDefault();
+            alert("before copy - form2");
+        });
+
+        form2.elements["inp2"].addEventListener("copy", (event) => {
+            event.preventDefault();
+            alert("copy - form2");
+        });
+    </script>
+    
+</body>
+</html>
