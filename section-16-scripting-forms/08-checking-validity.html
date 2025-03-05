@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>checking validity</title>
+
+    <style>
+        .red{
+            color: red;
+        }
+
+        .o-none{
+            opacity: 0;
+        }
+
+        .o-full{
+            opacity: 100;
+        }
+
+        .container{
+            border: 1px solid black;
+            margin: 20px 0px;
+            padding: 10px;
+            max-width: 600px;
+        }
+
+    </style>
+
+</head>
+<body>
+    
+    <h1>checking validity</h1>
+
+    <form name="form1" action="index.php" method="get">
+
+        <label for="text">Name:</label>
+        <input type="text" name="text" id="text" required pattern="[a-z]+">
+        <span class="red o-none">Please enter a valid name</span>
+        <br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <span class="red o-none">Please enter a valid email address</span>
+        <br>
+
+        <button type="button">submit</button>
+    </form>
+
+    <h2>valid check list</h2>
+
+    <div class="container">
+        <ul>
+            <li>customError - true if setCustomValidity() was set, false if not.</li>
+            <li>patternMismatch - true if the value doesn't match the specified pattern attribute.</li>
+            <li>rangeOverflow - true if the value is larger than the max value.</li>
+            <li>rangeUnderflow - true if the value is smaller than the min value.</li>
+            <li>stepMisMatch - true if the isn't correct given the step attribute in combination with min and max.</li>
+            <li>tooLong - true if the value has more characters than allowed by the maxlength property.Some browsers, such as Firefox 4, automatically constrain the character count,and so this value may always be false.</li>
+            <li>typeMismatch - value is not in the required format of either "email" or "url".</li>
+            <li>valid - true if every other property is false.Same value that is required by checkValidity().</li>
+            <li>valueMissing - true if the field is marked as required and there is no value.</li>
+        </ul>
+    </div>
+
+    <script>
+        let email = document.forms["form1"].elements["email"];
+        let text = document.forms["form1"].elements["text"];
+
+        email.addEventListener("focusout", (event) => {
+            if (email.validity.typeMismatch) {
+                email.setCustomValidity("Please enter a valid email address");
+                email.nextElementSibling.classList.remove("o-none");
+                email.nextElementSibling.classList.add("o-full");
+            } else {
+                email.setCustomValidity("");
+                email.nextElementSibling.classList.remove("o-full");
+                email.nextElementSibling.classList.add("o-none");
+
+            }
+        });
+
+        text.addEventListener("focusout", (event) => {
+            if (text.checkValidity() == false) {
+                text.setCustomValidity("Please enter a valid name");
+                text.nextElementSibling.classList.remove("o-none");
+                text.nextElementSibling.classList.add("o-full");
+            } else {
+                text.setCustomValidity("");
+                text.nextElementSibling.classList.remove("o-full");
+                text.nextElementSibling.classList.add("o-none");
+            }
+        });
+    </script>
+</body>
+</html>
