@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>scripting select boxes</title>
+
+    <style>
+        
+        .container{
+            border: 1px solid black;
+            margin: 20px 0px;
+            padding: 10px;
+            max-width: 1000px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Scripting select boxes</h1>
+
+    <form method="get">
+        <select name="color" id="">
+            <option value="red">Red</option>
+            <option value="green">Green</option>
+            <option value="blue">Blue</option>
+            <option value="purple">Purple</option>
+            <option value="gold">Gold</option>
+        </select>
+    </form>
+
+    <div class="container">
+        <ul>
+            <li>add(newOption,relOption) - Adds a new &lt;option&gt; element to the control before the related option.</li>
+            <li>mutiple - A boolean value indicating if multiple selections are allowed;equivalent to the HTML multiple attribute.</li>
+            <li>options - An HTMLCollection of &lt;option&gt; elements in the control.</li>
+            <li>remove(index) - Removes the option in the given position.</li>
+            <li>selectedIndex - The zero-based index of the selected option or -1 if no options are selected. For select boxes that allow multiple selections, this is always the first option in the selection</li>
+            <li>size - The number of rows visible in the select box; equivalent to the HTML size attribute.</li>
+        </ul>
+
+        <br>
+
+        <ul>
+            <li>index - The option's index inside the options collection.</li>
+            <li>label - The option's label; equivalent to the HTML label attribute.</li>
+            <li>selected - A boolean value used to indicate if the option is selected. Set this property to true select an option.</li>
+            <li>text - The option's text.</li>
+            <li>value - The option's value (equivalent to the HTML value attribute).</li>
+        </ul>
+
+    </div>
+
+    <h2>Options Selection</h2>
+
+    <div class="container">
+        var selectedOption = selectbox.options[selectbox.selectedIndex]; <br>
+    </div>
+
+    <div class="container">
+        var selectedIndex = selectbox.selectedIndex; <br>
+        var selectedOption = selectbox.options[selectedIndex]; <br>
+
+        alert('Selected index : ' +selectedIndex + '\nSelected text:' + selectedOption.text + "\nSelected value:" + selectedOption.value);
+    </div>
+
+    <h2>Adding Options</h2>
+
+    <div class="container">
+        var newOption = document.createElement('option'); <br>
+        newOption.appendChild(document.createTextNode('Option text')); <br>
+        newOption.setAttribute("value","Option value"); <br> <br>
+
+        selectbox.appendChild(newOption);
+    </div> 
+
+    <div class="container">
+        var newOption = new Option('Option text','Option value'); <br>
+        selectbox.add(newOption, undefined);    //best solution <br>
+    </div>
+
+    <h2>Removing Options</h2>
+
+    <div class="container">
+        selectbox.removeChild(select.options[0]); //remove first option
+    </div>
+
+    <div class="container">
+        select.box.remove(0);   //remove first option
+    </div>
+
+    <div class="container">
+        selectbox.option[0] = null; //remove first option
+    </div>
+
+    <h2>Moving and Reording Options</h2>
+
+    <div class="container">
+        var selectbox1 = document.getElementById('selectbox1'); <br>
+        var selectbox2 = document.getElementById('selectbox2'); <br>
+        selectbox2.appendChild(selectbox1.options[0]);
+    </div>
+
+    <div class="container">
+        var optionToMove = selectbox.option[1];
+        selectbox.insertBefore(optionToMove, selectbox.options[optionToMove.index-1]); <br>
+    </div>
+
+    <div class="container">
+        var optionToMove = selectbox.option[1];
+        selectbox.insertBefore(optionToMove, selectbox.options[optionToMove.index+2]); <br>
+    </div>
+
+    <script>
+        const selectBox = document.querySelector('select[name="color"]');
+        console.log(selectBox.options);
+
+        console.log('index : '+selectBox.options[0].index); 
+        console.log('text : '+selectBox.options[0].text); // Red
+        console.log('value : '+selectBox.options[0].value); // red
+
+        selectBox.addEventListener('change', function() {
+            console.log('index : '+this.selectedIndex); // 0
+            console.log('text : '+this.options[this.selectedIndex].text); // Red
+            console.log('value : '+this.options[this.selectedIndex].value); // red
+        });
+    </script>
+    
+</body>
+</html>
