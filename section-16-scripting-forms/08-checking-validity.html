@@ -44,7 +44,9 @@
         <span class="red o-none">Please enter a valid email address</span>
         <br>
 
-        <button type="button">submit</button>
+        <button id="btn_submit" type="button">submit</button>
+
+        <button id="btn_val" type="button">no validity</button>
     </form>
 
     <h2>valid check list</h2>
@@ -63,9 +65,27 @@
         </ul>
     </div>
 
+    <h2>Disabling Validation</h2>
+
+    <div class="container">
+        <div>
+            &lt;form method="post" action="signup.php" novalidate &gt; <br>
+            &lt;!-- form elements here --&gt; <br>
+            &lt;/form&gt; <br>
+        </div> <br>
+
+        <div>
+            &lt; document.form[0].noValidate = true; //turn off validation &gt;
+        </div>
+    </div>
+
     <script>
         let email = document.forms["form1"].elements["email"];
         let text = document.forms["form1"].elements["text"];
+
+        let btn_val = document.getElementById("btn_val");
+        let btn_submit = document.getElementById("btn_submit");
+
 
         email.addEventListener("focusout", (event) => {
             if (email.validity.typeMismatch) {
@@ -91,6 +111,20 @@
                 text.nextElementSibling.classList.add("o-none");
             }
         });
+
+        btn_val.addEventListener("click",() =>{
+            document.forms["form1"].noValidate = true;
+            console.log("no validation set to true");
+
+            btn_submit.addEventListener("click", function () {
+                if (document.forms["form1"].noValidate) {
+                    document.forms["form1"].submit();
+                } else {
+                    console.log("Validation is enabled, cannot submit.");
+                }
+            });
+        })
+        
     </script>
 </body>
 </html>
