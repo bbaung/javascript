@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>draggability</title>
+
+    <style>
+        .myDiv{
+            width: 200px;
+            height: 200px;
+            background-color: cyan;
+            border: 2px solid black;
+            margin: 20px 0px;
+        }
+
+        .container{
+            border: 1px solid black;
+            margin: 20px 0px;
+            padding: 10px;
+            max-width: 1000px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>draggability</h1>
+
+    <div class="container">
+        image and link are draggable="true" by default <br>
+        other elements are not draggable by default
+    </div>
+
+    <img src="https://picsum.photos/id/237/200/300" alt="dog">
+
+    <a href="https://picsum.photos/">picsum.photos</a>
+
+    <div class="myDiv"></div>
+    <p>can not draggable</p>
+
+
+    <div class="myDiv" draggable="true"></div>
+    <p>can draggable</p>
+
+    
+</body>
+</html>
