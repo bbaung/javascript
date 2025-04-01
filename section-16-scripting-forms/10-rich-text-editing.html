@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rich-text-editing</title>
+
+    <style>
+        
+        .container{
+            border: 1px solid black;
+            margin: 20px 0px;
+            padding: 10px;
+            max-width: 1000px;
+        }
+
+        .editor{
+            border: 1px solid black;
+            margin: 20px 0px;
+            padding: 10px;
+            width: 50%;
+            min-height: 300px;
+            overflow-y: scroll;
+        }
+
+        table{
+            background-color: antiquewhite;
+            border-collapse: collapse;
+            border : 1px solid black;
+            width: 800px;
+        }
+
+        thead{
+            background-color: lightgray;
+            font-weight: 700;
+        }
+
+        td,th{
+            border: 1px solid black;
+            padding: 2px 10px;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <h1>Rich Text Editing</h1>
+
+    <div>
+        <button onclick="bold()" type="button">bold</button>
+
+        <button onclick="italic()" type="button">italic</button>
+
+        <button onclick="link()" type="button">link</button>
+    </div>
+
+    <div id="editor1" class="editor" contenteditable>
+        <div> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, accusantium necessitatibus! Ab quasi qui reiciendis placeat quam unde consequuntur, explicabo tempora in distinctio ipsa? Fugit quo voluptas asperiores aliquid harum.</div>
+    </div>
+
+    <h2>editable container</h2>
+
+    <div class="container">
+        &lt;div class="editable" id="richedit" contenteditable&gt; &lt;/div&gt; <br>
+    </div>
+
+    <div class="container">
+        var div = document.getElementById("richedit"); <br>
+        richedit.contentEditable = "true"; <br>
+    </div>
+
+    <h2>Interacting with Rich Text</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <td>COMMAND</td>
+                <td>VALUE (THIRD ARGUMENT)</td>
+                <td>DESCRIPTION</td>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>blackcolor</td>
+                <td>A color string</td>
+                <td>Sets the background color of the document.</td>
+            </tr>
+
+            <tr>
+                <td>bold</td>
+                <td>null</td>
+                <td>Toggles bold text for the text selection.</td>
+            </tr>
+
+            <tr>
+                <td>copy</td>
+                <td>null</td>
+                <td>Executes a clipboard copy on the text selection.</td>
+            </tr>
+
+            <tr>
+                <td>createlink</td>
+                <td>A URL string</td>
+                <td>Turns the current text selection into a link that goes to the given URL.</td>
+            </tr>
+
+            <tr>
+                <td>cut</td>
+                <td>null</td>
+                <td>Executes a clipboard cut on the text selection.</td>
+            </tr>
+
+            <tr>
+                <td>delete</td>
+                <td>null</td>
+                <td>Deletes the currently selected text.</td>
+            </tr>
+
+            <tr>
+                <td>fontname</td>
+                <td>The font name</td>
+                <td>Changes the text selection to use the given font name.</td>
+            </tr>
+
+            <tr>
+                <td>fontsize</td>
+                <td>1 through 7</td>
+                <td>Changes the font size for the text selection</td>
+            </tr>
+
+            <tr>
+                <td>fontcolor</td>
+                <td>A color string</td>
+                <td>Changes the text color for the text selection</td>
+            </tr>
+
+            <tr>
+                <td>formatblock</td>
+                <td>The HTML tag to surround the block with;for example,&lt;h1&gt;</td>
+                <td>Formats the entire text box around the selection with a particular HTML tag.</td>
+            </tr>
+
+            <tr>
+                <td>indent</td>
+                <td>null</td>
+                <td>Indents the text.</td>
+            </tr>
+
+            <tr>
+                <td>inserthorizontalrule</td>
+                <td>null</td>
+                <td>Inserts an &lt;hr&gt; element at the caret location.</td>
+            </tr>
+
+            <tr>
+                <td>insertimage</td>
+                <td>The image URL</td>
+                <td>Inserts an image at the caret location.</td>
+            </tr>
+
+            <tr>
+                <td>insertorderedlist</td>
+                <td>null</td>
+                <td>Inserts an &lt;ol&gt; element at the caret location.</td>
+            </tr>
+
+            <tr>
+                <td>insertparagraph</td>
+                <td>null</td>
+                <td>Inserts a &lt;p&gt; element at the caret location.</td>
+            </tr>
+
+            <tr>
+                <td>insertunorderedlist</td>
+                <td>null</td>
+                <td>Inserts a &lt;ul&gt; element at the caret location.</td>
+            </tr>
+
+            <tr>
+                <td>italic</td>
+                <td>null</td>
+                <td>Toggles italic text for the text selection.</td>
+            </tr>
+
+            <tr>
+                <td>justifycenter</td>
+                <td>null</td>
+                <td>Centers the block of text in which the caret is positioned.</td>
+            </tr>
+
+            <tr>
+                <td>justifyleft</td>
+                <td>null</td>
+                <td>Left-aligns the block of text in which the caret is positioned.</td>
+            </tr>
+
+            <tr>
+                <td>outdent</td>
+                <td>null</td>
+                <td>Outdents the text.</td>
+            </tr>
+
+            <tr>
+                <td>paste</td>
+                <td>null</td>
+                <td>Executes a clipboard paste on the text selection</td>
+            </tr>
+
+            <tr>
+                <td>removeformat</td>
+                <td>null</td>
+                <td>Removes block formatting from the block in which the caret is positioned. This is the opposite of formateblock.</td>
+            </tr>
+
+            <tr>
+                <td>selectall</td>
+                <td>null</td>
+                <td>Selects all of the text in the document</td>
+            </tr>
+
+            <tr>
+                <td>underline</td>
+                <td>null</td>
+                <td>Toggles underlined text for the text selection</td>
+            </tr>
+
+            <tr>
+                <td>unlink</td>
+                <td>null</td>
+                <td>Removes a text link. This is the opposite of createlink.</td>
+            </tr>
+        </tbody>
+
+    </table>
+
+    <div class="container">
+        //toggle bold text in an iframe <br>
+        document.execCommand("bold",false,null); <br> <br>
+
+        //toggle italic text in an iframe <br>
+        documet.execCommand("italic",false,null); <br> <br>
+
+        //create link to www.wrox.com in an iframe <br>
+        document.execCommand("createlink",false,"http://www.wrox.com"); <br> <br>
+
+        //format as first-level heading in an iframe <br>
+        document.execCommand("formatblock",false,"h1"); <br>
+    </div>
+    
+    <script>
+        let editor = document.getElementById("editor1");
+
+        function bold(){
+            document.execCommand("bold", false, null);
+        }
+
+        function italic(){
+            document.execCommand("italic", false, null);
+        }
+
+        function link(){
+            document.execCommand("createlink", false, "http://www.wrox.com");
+        }
+    </script>
+</body>
+</html>
