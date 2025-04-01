@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>drag and drop events</title>
+
+    <style>
+        .myDiv{
+            max-width: 1000px;
+            height: 500px;
+            overflow-y: scroll;
+            background-color: cyan;
+            border: 2px solid black;
+            margin: 20px 0px;
+            padding: 10px;
+        }
+
+        .container{
+            border: 1px solid black;
+            margin: 20px 0px;
+            padding: 10px;
+            max-width: 1000px;
+        }
+    </style>
+</head>
+<body>
+    <p>observed with console</p>
+
+    <h1>Drag and Drop Events</h1>
+
+    <div>
+        <img class="drag-img" src="https://picsum.photos/id/237/200/300" alt="dog">
+
+    </div>
+
+    <div class="myDiv drag-receive"></div>
+
+    <div class="container">
+        <h2>for drag element</h2>
+
+        <ul>
+            <li>dragstart</li>
+            <li>drag</li>
+            <li>dragend</li>
+        </ul>
+
+        <h2>for drag receive element</h2>
+
+        <ul>
+            <li>dragenter</li>
+            <li>dragover</li>
+            <li>dragleave</li>
+        </ul>
+
+    </div>
+
+    <script>
+
+        let dragImg = document.querySelector('.drag-img');
+        let dragReceive = document.querySelector('.drag-receive');
+
+
+        //drag element
+        dragImg.addEventListener('dragstart', ()=> {
+            console.log('Drag element : dragstart');
+        });
+
+        dragImg.addEventListener('drag', ()=> {
+            console.log('drag');
+        });
+
+        dragImg.addEventListener('dragend', ()=> {
+            console.log('dragend');
+        });
+
+
+        //drag receive element
+
+        dragReceive.addEventListener('dragenter', ()=> {
+            console.log('Drag receive element : dragenter');
+        });
+
+        dragReceive.addEventListener('dragover', ()=> {
+            console.log('dragover');
+        });
+
+        dragReceive.addEventListener('dragleave', ()=> {
+            console.log('dragleave');
+        });
+
+    </script>
+    
+</body>
+</html>
