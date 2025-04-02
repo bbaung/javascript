@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>try-catch statement</title>
+
+    <style>
+        .container{
+            border: 1px solid black;
+            margin: 20px 0px;
+            padding: 10px;
+            max-width: 600px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>try-catch statement</h1>
+
+    <p>observed with console</p>
+
+    <div class="container">
+        try {   <br>
+            //code that may cause an error  <br>
+        }catch (error) { <br>
+            //what to do when an error occurs. <br>
+        }
+    </div>
+
+    <div class="container">
+        try {   <br>
+            window.someNonexistentFunction(); <br>
+        }catch (error) { <br>
+            alert("An error happened!");  <br>
+        }
+    </div>
+
+    <div class="container">
+        try {   <br>
+            window.someNonexistentFunction(); <br>
+        }catch (error) { <br>
+            alert(error.message);  <br>
+        }
+    </div>
+    
+    <script>
+        
+        try{
+            console.log(run());
+        }catch(error){
+            console.log("error message: "+ error.message)
+        }
+
+
+        console.log("hello");
+
+        alert("hi");
+    </script>
+
+</body>
+</html>
