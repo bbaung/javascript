@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>the data transfer object</title>
+
+    <style>
+        .myDiv{
+            max-width: 1000px;
+            height: 500px;
+            overflow-y: scroll;
+            background-color: cyan;
+            border: 2px solid black;
+            margin: 20px 0px;
+            padding: 10px;
+        }
+
+        .container{
+            border: 1px solid black;
+            margin: 20px 0px;
+            padding: 10px;
+            max-width: 1000px;
+        }
+    </style>
+</head>
+<body>
+    <p>observed with console</p>
+
+    <h1>Drag and Drop Events</h1>
+
+    <div>
+        <img id="drag-image" class="drag-img" src="https://picsum.photos/id/237/200/300" alt="dog">
+    </div>
+
+    <p id="text" draggable="true" class="container drag-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cum repudiandae dolor laboriosam provident facere incidunt iusto unde aut nulla, impedit, sed magni illo nihil tempore quas assumenda minus voluptate asperiores?</p>
+
+    <div class="myDiv drag-receive"></div>
+
+    <h2>The dataTransfer Object</h2>
+
+    <div class="container">
+        //working with text <br>
+        event.dataTransfer.setData("text","some text"); <br>
+        var text = event.dataTransfer.getData("text"); <br> <br>
+
+        //working with a URL
+        event.dataTransfer.setData("URL","https://www.wrox.com/"); <br>
+        var url = event.dataTransfer.getData("URL");
+    </div>
+
+    <h2>dropEffect and effectAllowed</h2>
+
+    <div class="container">
+        <h3>dropEffect</h3>
+
+        <ul>
+            <li>"none" - A dragged item cannot be dropped here.This is the defalut value for everything except text boxes.</li>
+            <li>"move" - The dragged item should be moved to the drop target.</li>
+            <li>"copy" - The dragged item should be copied to the drop target.</li>
+            <li>"link" - Indicates that the drop target will navigate to the dragged item (but only if it is a URL).</li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <h3>effectAllowed</h3>
+
+        <ul>
+            <li>"uninitialized" - No action has been set for the dragged item.</li>
+            <li>"none" - No action is allowed on the dragged item.</li>
+            <li>"copy" - Only dropEffect "copy" is allowed.</li>
+            <li>"link" - Only dropEffect "link" is allowed.</li>
+            <li>"move" - Only dropEffect "move" is allowed.</li>
+            <li>"copyLink" - dropEffect "copy" and "link" are allowed.</li>
+            <li>"copyMove" - dropEffect "copy" and "move" are allowed.</li>
+            <li>"linkMove" - dropEffect "link" and "move" are allowed.</li>
+            <li>"all" - All dropEffect values are allowed.</li>
+        </ul>
+    </div>
+
+    <script>
+
+        let dragText = document.querySelector('.drag-text');
+        let dragImg = document.querySelector('.drag-img');
+        let dragReceive = document.querySelector('.drag-receive');
+
+        dragReceive.addEventListener("dragover",(event)=>{
+            event.preventDefault();
+            event.dataTransfer.dropEffect = "move";
+        });
+
+        dragText.addEventListener("dragstart", (event) => {
+            event.dataTransfer.setData("text", event.target.id);
+        });
+
+        dragImg.addEventListener("dragstart", (event) => {
+            event.dataTransfer.setData("text", event.target.id);
+        });
+
+        dragReceive.addEventListener("drop", (event) => {
+            event.preventDefault();
+            let data = event.dataTransfer.getData("text");
+            let draggedElement = document.getElementById(data);
+            if (draggedElement) {
+            dragReceive.appendChild(draggedElement);
+            }
+        });
+
+
+
+
+    </script>
+    
+</body>
+</html>
