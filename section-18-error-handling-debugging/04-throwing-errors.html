@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>throwing-errors</title>
+
+    <style>
+        .container{
+            border: 1px solid black;
+            margin: 20px 0px;
+            padding: 10px;
+            max-width: 600px;
+            width: fit-content;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>throwing errors</h1>
+
+    <p>observed with console</p>
+
+    <div class="container">
+        throw 12345;    <br>
+        throw "Hello World";    <br>
+        throw true;     <br>
+        throw {name : "JavaScript"};
+    </div>
+
+    <div class="container">
+        throw new Error("Something bad happened.");
+    </div>
+    
+    <div class="container">
+        throw new SyntaxError("I don't like your syntax.");     <br>
+        throw new TypeError("What type of variable do you take me for?");   <br>
+        throw new RangeError("Sorry, you just don't have the range.");      <br>
+        throw new EvalError("That doesn't evaluate.");      <br>
+        throw new URIError("Uri, is that you?");        <br>
+        throw new ReferenceError("You didn't city your references properly.");
+    </div>
+
+    <script>
+
+        try{
+            throw new SyntaxError("Hello , this is custom syntexError.")
+        }catch(error){
+            console.log(error.message);
+            console.log(error.name);
+        }
+
+        
+
+    </script>
+
+</body>
+</html>
