@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>error-types</title>
+
+    <style>
+        .container{
+            border: 1px solid black;
+            margin: 20px 0px;
+            padding: 10px;
+            max-width: 600px;
+            width: fit-content;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Error types </h1>
+    
+    <div class="container">
+        <ul>
+            <li>Error</li>
+            <li>EvalError</li>
+            <li>RangeError</li>
+            <li>ReferenceError</li>
+            <li>SyntaxError</li>
+            <li>TypeError</li>
+            <li>URIError</li>
+        </ul>
+    </div>
+
+    <div class="container">
+        new eval();     //throws EvalError <br>
+        eval = foo;     //throws EvalError
+    </div>
+
+    <div class="container">
+        var item1 = new Array(-20);     //throws RangeError <br>
+        var item2 = new Array(Number.MAX_VALUE);    //throws RangeError
+    </div>
+
+    <div class="container">
+        var obj = x;    //throws ReferenceError when x isn't declared
+    </div>
+    
+    <div class="container">
+        eval("a++b");   //throws SyntaxError
+    </div>
+
+    <div class="container">
+        var o = new 10;     //throws TypeError  <br>
+        alert("name" in true);      //throws TypeError  <br>
+        Function.prototype.toString.call("name");   //throws TypeError
+    </div>
+
+</body>
+</html>
