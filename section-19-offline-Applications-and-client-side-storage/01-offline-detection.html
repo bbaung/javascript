@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>offline detection</title>
+
+    <style>
+        .container{
+            border: 1px solid black;
+            margin: 20px 0px;
+            padding: 10px;
+            max-width: 600px;
+            width: fit-content;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>offline detection</h1>
+
+    <p>observed with console</p>
+
+    <h2 id="heading">Internet</h2>
+
+    <div class="container">
+        <p>
+            The `navigator.onLine` property checks if the browser is online or offline at the moment of execution. 
+            The `window.addEventListener("online", ...)` and `window.addEventListener("offline", ...)` events allow 
+            you to detect changes in the network status dynamically.
+        </p>
+    </div>
+
+    <script>
+
+        if(navigator.onLine){
+            heading.style.backgroundColor = "Green";
+        }else{
+            heading.style.backgroundColor = "Red";
+        }
+
+        window.addEventListener("online", () =>{
+            heading.style.backgroundColor = "Green";
+        })
+
+        window.addEventListener("offline", () =>{
+            heading.style.backgroundColor = "Red";
+        })
+
+    </script>
+
+</body>
+</html>
