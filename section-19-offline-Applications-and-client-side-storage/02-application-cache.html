@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>application-cache</title>
+
+    <style>
+        .container{
+            border: 1px solid black;
+            margin: 20px 0px;
+            padding: 10px;
+            max-width: 600px;
+            width: fit-content;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>application cache</h1>
+
+    <p>observed with console</p>
+
+    <div class="container">
+        CACHE MANIFEST <br>
+        #Comment <br>
+        <br>
+        file.js <br>
+        file.css <br>
+    </div>
+
+    <div class="container">
+        &lt;html manifest="cache.manifest"&gt;
+    </div>
+    
+    <div class="container">
+        &lt;applicationCache.update()&gt;
+    </div>
+
+    <div class="container">
+        updateready Event -> applicationCache.swapCache();
+    </div>
+
+    <button onclick="checkCache()" type="button">Update</button>
+
+    <script>
+        function checkCache(){
+            if(window.applicationCache){
+                console.log("applicationCache is supported");
+                window.applicationCache.update();
+            }else{
+                console.log("applicationCache is not supported");
+            }
+        }
+
+    </script>
+
+</body>
+</html>
