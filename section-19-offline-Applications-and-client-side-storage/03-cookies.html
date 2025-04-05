@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cookies</title>
+
+    <style>
+
+        body{
+            position: relative;
+        }
+
+        .container{
+            border: 1px solid black;
+            margin: 20px 0px;
+            padding: 10px;
+            max-width: 600px;
+            width: fit-content;
+        }
+
+        .float-right{
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: wheat;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px 5px gray;
+            z-index: 10;
+            width: 200px;
+            height: 300px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>cookies</h1>
+
+    <p>observed with console</p>
+
+    <a href="https://developer.chrome.com/docs/devtools/application/cookies?utm_source=devtools">chrome dev docs about cookie</a>
+    <br>
+    <a href="https://www.w3schools.com/jS/js_cookies.asp">w3schools , cookie</a>
+
+    <h2>login</h2>
+
+    <div class="float-right"></div>
+
+    <label for="username">Username</label> <br>
+    <input type="text" name="name" id="username" placeholder="username"> <br>
+
+    <label for="age">Age</label> <br>
+    <input type="number" name="age" id="userage" min="12" max="111" placeholder="age"> <br>
+
+    <button onclick="setCookies()" type="button">set cookies</button>
+
+    <button onclick="getCookies()" type="button">get cookies</button>
+
+    <script>
+
+        const username = document.getElementById("username");
+        const userage = document.getElementById("userage");
+        const floatRight = document.querySelector(".float-right");
+
+        floatRight.innerHTML = document.cookie;
+        floatRight.innerHTML += "<br>" + document.cookie.split(";").length + " cookies set";
+        floatRight.innerHTML += "<br>" + document.cookie.split(";").map(cookie => cookie.split("=")[0]).join(", ") + " cookies names";
+        floatRight.innerHTML += "<br>" + document.cookie.split(";").map(cookie => cookie.split("=")[1]).join(", ") + " cookies values";
+
+
+        function setCookies(){
+            let date = new Date();
+            date.setDate(date.getDate() + 1); // 1 day expiration
+            document.cookie = "username=" + username.value + ";expires=" + date.toUTCString(); // set expiration date and path
+            document.cookie = "age=" + userage.value;
+        }
+
+        function getCookies(n){
+            let cookies = document.cookie.split(";").map(cookie => cookie.split("=")[0]).join(", ");
+            floatRight.innerHTML += "<br>" + cookies;
+            let pattern = new RegExp("/.*"+n+"=(\\w+).*/"); // regex to get the value of the cookie
+            let s = document.cookie;
+            s = s.replace(pattern, "$1"); // replace the cookie name with its value
+            floatRight.innerHTML += "<br>" + s; // show the value of the cookie
+        }
+    </script>
+
+</body>
+</html>
