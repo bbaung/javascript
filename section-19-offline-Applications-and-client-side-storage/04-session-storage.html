@@ -53,7 +53,7 @@
     <label for="age">Age</label> <br>
     <input type="number" name="age" id="userage" min="12" max="111" placeholder="age"> <br>
 
-    <button onclick="setCookies()" type="button">set cookies</button>
+    <button onclick="setCookies()" type="button">set cookies, session-storage</button>
 
     <button onclick="getCookies()" type="button">get cookies</button>
 
@@ -103,6 +103,8 @@
 
             sessionStorage.setItem("username", username.value); // set session storage
             sessionStorage.setItem("age", userage.value); // set session storage
+
+            floatRight.innerHTML += "<br>" + "name : " + sessionStorage.getItem("username") + "<br>" + "age : " + sessionStorage.getItem("age"); // show the session storage
         }
 
         function getCookies(n){
