@@ -1,0 +1,187 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>local-storage</title>
+
+    <style>
+
+        body{
+            position: relative;
+        }
+
+        .container{
+            border: 1px solid black;
+            margin: 20px 0px;
+            padding: 10px;
+            max-width: 600px;
+            width: fit-content;
+        }
+
+        .float-right{
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: wheat;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px 5px gray;
+            z-index: 10;
+            width: 200px;
+            height: 300px;
+            overflow-y: auto;
+        }
+
+        table{
+            border: 1px solid black;
+            margin: 20px 0px;
+            padding: 10px;
+            max-width: 600px;
+            width: fit-content;
+            border-collapse: collapse;
+        }
+
+        table thead{
+            background-color: black;
+            color: white;
+        }
+
+        table thead th, 
+        table thead td{
+            border: 0px;
+            padding: 10px;
+        }
+
+        table tbody th, 
+        table tbody td{
+            border: 1px solid black;
+            padding: 10px;
+        }
+
+        table tbody tr:nth-child(odd){
+            background-color: #f2f2f2;
+        }
+
+        table tbody tr:nth-child(even){
+            background-color: #ffffff;
+        }
+
+        table tbody tr td:first-child{
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>local storage</h1>
+
+    <p>observed with console</p>
+
+    <a href="https://www.w3schools.com/jsref/prop_win_localstorage.asp">w3 school local-storage</a>
+
+    <h2>login</h2>
+
+    <div class="float-right"></div>
+
+    <label for="username">Username</label> <br>
+    <input type="text" name="name" id="username" placeholder="username"> <br>
+
+    <label for="age">Age</label> <br>
+    <input type="number" name="age" id="userage" min="12" max="111" placeholder="age"> <br>
+
+    <button onclick="setCookies()" type="button">set cookies, local-storage</button>
+
+    <button onclick="getCookies()" type="button">get cookies</button>
+
+    <h2>Cookies vs. Local Storage vs. Session Storage </h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th></th>
+                <th>Cookies</th>
+                <th>Local Storage</th>
+                <th>Session Storage</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            <tr>
+                <td>Capacity</td>
+                <td>4kb</td>
+                <td>10mb</td>
+                <td>5mb</td>
+            </tr>
+    
+            <tr>
+                <td>Browsers</td>
+                <td>HTML 4/HTML 5</td>
+                <td>HTML 5</td>
+                <td>HTML 5</td>
+            </tr>
+
+            <tr>
+                <td>Accessible form</td>
+                <td>Any window</td>
+                <td>Any window</td>
+                <td>Same tab</td>
+            </tr>
+
+            <tr>
+                <td>Expires</td>
+                <td>Manually set</td>
+                <td>Never</td>
+                <td>On tab close</td>
+            </tr>
+
+            <tr>
+                <td>Storage Location</td>
+                <td>Browser and server</td>
+                <td>Browser only</td>
+                <td>Any window</td>
+            </tr>
+
+            <tr>
+                <td>Sent with requests</td>
+                <td>Yes</td>
+                <td>No</td>
+                <td>No</td>
+            </tr>
+
+        </tbody>
+        
+    </table>
+
+    <script>
+
+        const username = document.getElementById("username");
+        const userage = document.getElementById("userage");
+        const floatRight = document.querySelector(".float-right");
+
+
+        function setCookies(){
+            let date = new Date();
+            date.setDate(date.getDate() + 1); // 1 day expiration
+            document.cookie = "username=" + username.value + ";expires=" + date.toUTCString(); // set expiration date and path
+            document.cookie = "age=" + userage.value;
+
+            localStorage.setItem("username", username.value); // set session storage
+            localStorage.setItem("age", userage.value); // set session storage
+
+            floatRight.innerHTML += "<br>" + "name : " + localStorage.getItem("username") + "<br>" + "age : " + localStorage.getItem("age"); // show the session storage
+        }
+
+        function getCookies(n){
+            let cookies = document.cookie.split(";").map(cookie => cookie.split("=")[0]).join(", ");
+            floatRight.innerHTML += "<br>" + cookies;
+            let pattern = new RegExp("/.*"+n+"=(\\w+).*/"); // regex to get the value of the cookie
+            let s = document.cookie;
+            s = s.replace(pattern, "$1"); // replace the cookie name with its value
+            floatRight.innerHTML += "<br>" + s; // show the value of the cookie
+        }
+    </script>
+
+</body>
+</html>
