@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>session-storage</title>
+
+    <style>
+
+        body{
+            position: relative;
+        }
+
+        .container{
+            border: 1px solid black;
+            margin: 20px 0px;
+            padding: 10px;
+            max-width: 600px;
+            width: fit-content;
+        }
+
+        .float-right{
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: wheat;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px 5px gray;
+            z-index: 10;
+            width: 200px;
+            height: 300px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>session storage</h1>
+
+    <p>observed with console</p>
+
+    <a href="https://www.w3schools.com/jsref/prop_win_sessionstorage.asp">w3 school session-storage</a>
+
+    <h2>login</h2>
+
+    <div class="float-right"></div>
+
+    <label for="username">Username</label> <br>
+    <input type="text" name="name" id="username" placeholder="username"> <br>
+
+    <label for="age">Age</label> <br>
+    <input type="number" name="age" id="userage" min="12" max="111" placeholder="age"> <br>
+
+    <button onclick="setCookies()" type="button">set cookies</button>
+
+    <button onclick="getCookies()" type="button">get cookies</button>
+
+
+    <br>
+
+    <h2>section storage</h2>
+    <div class="container">
+        <ul>
+            <li>clear() - Removes all values; not implemented in Firefox.</li>
+            <li>getItem() - Retrieves the value for the given name.</li>
+            <li>key(index) - Retrieves the name of the value in the given numeric position.</li>
+            <li>removeItem(name) - Removes the name-value pair indentified by name.</li>
+            <li>setItem(name,value) - Sets the value for the given name.</li>
+        </ul>
+    </div>
+
+    <h2>The sessionStorage Object</h2>
+    <div class="container">
+        //store date using method <br>
+        sessionStorage.setItem("name", "John Doe"); <br> <br>
+
+        //store date using property <br>
+        sessionStorage.book = "Profession JavaScript";
+    </div>
+
+    <div class="container">
+        //get data using method <br>
+        var name = sessionStorage.getItem("name"); <br> <br>
+
+        //get data using property <br>
+        var book = sessionStorage.book;
+    </div>
+
+    <script>
+
+        const username = document.getElementById("username");
+        const userage = document.getElementById("userage");
+        const floatRight = document.querySelector(".float-right");
+
+
+        function setCookies(){
+            let date = new Date();
+            date.setDate(date.getDate() + 1); // 1 day expiration
+            document.cookie = "username=" + username.value + ";expires=" + date.toUTCString(); // set expiration date and path
+            document.cookie = "age=" + userage.value;
+
+            sessionStorage.setItem("username", username.value); // set session storage
+            sessionStorage.setItem("age", userage.value); // set session storage
+        }
+
+        function getCookies(n){
+            let cookies = document.cookie.split(";").map(cookie => cookie.split("=")[0]).join(", ");
+            floatRight.innerHTML += "<br>" + cookies;
+            let pattern = new RegExp("/.*"+n+"=(\\w+).*/"); // regex to get the value of the cookie
+            let s = document.cookie;
+            s = s.replace(pattern, "$1"); // replace the cookie name with its value
+            floatRight.innerHTML += "<br>" + s; // show the value of the cookie
+        }
+    </script>
+
+</body>
+</html>
