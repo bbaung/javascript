@@ -95,6 +95,8 @@
 
     <button onclick="getCookies()" type="button">get cookies</button>
 
+    <button onclick="clearLocalStorage()" type="button">clear local storage</button>
+
     <h2>Cookies vs. Local Storage vs. Session Storage </h2>
 
     <table>
@@ -160,6 +162,10 @@
         const userage = document.getElementById("userage");
         const floatRight = document.querySelector(".float-right");
 
+
+        function clearLocalStorage(){
+            window.localStorage.clear(); // clear local storage
+        }
 
         function setCookies(){
             let date = new Date();
