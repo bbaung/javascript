@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>indexed-db</title>
+
+    <style>
+
+        .container{
+            border: 1px solid black;
+            margin: 20px 0px;
+            padding: 10px;
+            width: fit-content;
+        }
+
+    </style>
+</head>
+<body>
+
+    <p>concern with console and server</p>
+
+    <h1>indexed-db</h1>
+
+    <h2>event.target.errorCode</h2>
+
+    <div class="container">
+        <ul>
+            <li>IDBDatabaseException.UNKNOWN_ERR(1) - The error is unexpected and doesn't fall into an avaliable category.</li>
+            <li>IDBDatabaseException.NON_TRANSIENT_ERR(2) - The operation is not allowed.</li>
+            <li>IDBDatabaseException.NOT_FOUND_ERR(3) - The database on which to perform the operation is not found.</li>
+            <li>IDBDatabaseException.CONSTRAINT_ERR(4) - A database constraint was violated.</li>
+            <li>IDBDatabaseException.DATA_ERR(5) - Data provided for the transaction doesn't fulfill the requirements.</li>
+            <li>IDBDatabaseException.NOT_ALLOWED_ERR(6) - The operation is not allowed.</li>
+            <li>IDBDatabaseException.TRANSACTION_INACTIVE_ERR(7) - An attempt was made to reuse an already completed transaction.</li>
+            <li>IDBDatabaseException.ABORT_ERR_(8) - The request was aborted and so did not succeed.</li>
+            <li>IDBDatabaseException.READ_ONLY_ERR_(9) - Attempt to write or otherwise change data while in read-only mode.</li>
+            <li>IDBDatabaseException.TIMEOUT_ERR_(10) - The operation could not be completed in the amount of time avaliable.</li>
+            <li>IDBDatabaseException.QUOTA_ERR_(11) - Not enough remaining disk space.</li>
+        </ul>
+    </div> 
+
+    <script>
+        let request,database;
+
+        request = indexedDB.open("notes");
+
+        request.onerror = function(event){
+            console.log("error = ",event.target.errorCode);
+            alert("error = ",event.target.errorCode);
+        }
+
+        request.onsuccess = function(event){
+            console.log("success");
+            alert("success");
+        }
+
+        request.onupgradeneeded = function(event){
+            database = event.target.result;
+            console.log("onupgradeneeded");
+            alert("onupgradeneeded");
+        }
+        request.onblocked = function(event){
+            console.log("onblocked");
+            alert("onblocked");
+        }
+
+    </script>
+</body>
+</html>
