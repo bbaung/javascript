@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>drag-and-drop-file-reading</title>
+
+    <style>
+
+        body{
+            position: relative;
+        }
+
+        .container{
+            border: 1px solid black;
+            margin: 20px 0px;
+            padding: 10px;
+            max-width: 600px;
+            width: fit-content;
+        }
+
+        #myDiv{
+            height: 400px;
+            background-color: gray;
+        }
+     
+    </style>
+</head>
+<body>
+
+    <h1>drag-and-drop-file-reading api</h1>
+    
+    <div id="myDiv">
+        <ol>
+
+        </ol>
+    </div>
+
+    <script>
+
+        function listener(){
+            event.preventDefault();
+
+            if(event.type == "drop"){
+                let myFiles = event.dataTransfer.files;
+                let info = "";
+                for(let i = 0; i < myFiles.length; i++){
+                    info += "<li>" + myFiles[i].name + "</li>";
+                }
+                
+                document.querySelector("#myDiv ol").innerHTML += info;
+            }
+        }
+
+        document.getElementById("myDiv").addEventListener("dragenter",listener);
+        document.getElementById("myDiv").addEventListener("dragover",listener);
+        document.getElementById("myDiv").addEventListener("drop",listener);
+
+    </script>
+
+</body>
+</html>
