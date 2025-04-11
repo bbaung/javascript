@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>local-storage</title>
+
+    <style>
+
+        body{
+            position: relative;
+        }
+
+        .container{
+            border: 1px solid black;
+            margin: 20px 0px;
+            padding: 10px;
+            max-width: 600px;
+            width: fit-content;
+        }
+     
+    </style>
+</head>
+<body>
+
+    <h1>geolocation</h1>
+
+    <a href="https://www.w3schools.com/html/html5_geolocation.asp">w3 school, geolocation api</a>
+
+    <p class="para">latitude , longitude</p>
+
+    
+
+    <script>
+        navigator.geolocation.getCurrentPosition(function (position) {
+            document.querySelector(".para").textContent = 
+            "Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude;
+        }, function (error) {
+            document.querySelector(".para").textContent = 
+            "Error: " + error.message;
+        });
+    </script>
+
+</body>
+</html>
