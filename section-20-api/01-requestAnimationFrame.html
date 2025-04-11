@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>request-animation-frame</title>
+
+    <style>
+
+        body{
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .container{
+            position: relative;
+        }
+
+        #myDiv1{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            position: absolute;
+        }
+
+        #myDiv2{
+            width: 200px;
+            height: 200px;
+            background-color: purple;
+            position: absolute;
+            top: 250px;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <h1>request-animation-frame</h1>
+
+    <div class="container">
+        <div id="myDiv1"></div>
+
+        <div id="myDiv2"></div>
+    </div>
+    
+    <script>
+        let i = 0;
+
+        setInterval(function(){
+
+            if( (window.innerWidth - 200) > i){
+                i += 5;
+                myDiv1.style.left = i + "px";
+            }
+
+        },1000/60)
+
+        let j = 0;
+
+        function run(){
+
+            if( (window.innerWidth - 200) > j){
+                j += 5;
+                myDiv2.style.left = j + "px";
+                requestAnimationFrame(run);
+            }
+        }
+
+        requestAnimationFrame(run);
+
+    </script>
+</body>
+</html>
