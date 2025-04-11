@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>file-api</title>
+
+    <style>
+
+        body{
+            position: relative;
+        }
+
+        .container{
+            border: 1px solid black;
+            margin: 20px 0px;
+            padding: 10px;
+            max-width: 600px;
+            width: fit-content;
+        }
+     
+    </style>
+</head>
+<body>
+
+    <h1>file api</h1>
+
+    <p>concern with console</p>
+
+    <label for="singleFile">single file selector</label> <br>
+    <input type="file" name="singleFile" id="singleFile" class="fileSelect"> <br> <br>
+
+    <label for="multiFile">multiple file selector</label> <br>
+    <input type="file" name="multiFile" id="multiFile" class="fileSelect" multiple> <br> <br>
+
+    <div class="container">
+        <ul>
+            <li>name - The file name on the local system.</li>
+            <li>size - The size of the file in bytes.</li>
+            <li>type - A string containing the MIME type of the file.</li>
+            <li>lastModifiedDate - A string representing the last time the file was modified. This property has been implemented only in Chrome.</li>
+        </ul>
+    </div>
+
+    
+
+    <script>
+
+        document.querySelectorAll(".fileSelect").forEach(input => {
+            input.addEventListener("change", function() {
+            for (let i = 0; i < this.files.length; i++) {
+
+                console.log(this.files[i]);
+                console.log(`File Name: ${this.files[i].name}`);
+            }
+            });
+        });
+
+    </script>
+
+</body>
+</html>
