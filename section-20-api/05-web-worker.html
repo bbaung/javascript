@@ -25,9 +25,31 @@
 
     <h1>web-worker</h1>
 
-    <video src="https://youtu.be/kulCafdH8Kk?si=gl7kU4XgRVqOoFjU"></video>
+    <a href="https://www.w3schools.com/Html/html5_webworkers.asp">w3-school web-worker</a> <br> <br>
+
+    <video src="./htoo-eain-thin.mp4" controls autoplay width="50%"></video> <br><br>
+
+    <button id="withoutw" type="button">Without Worker</button>
+
+    <button id="withw" type="button">With Worker</button> <br>
 
     <script>
+
+        document.getElementById("withoutw").addEventListener("click",function(){
+            for (let index = 0; index < 500; index++) {
+                document.body.innerHTML += index + "<br>";
+            }
+        })
+
+        let worker = new Worker('worker.js');
+
+        worker.onmessage = function(e) {
+            document.body.innerHTML += e.data + "<br>";
+        };
+
+        document.getElementById("withw").addEventListener("click", function() {
+            worker.postMessage("hello");
+        });
 
     </script>
 
